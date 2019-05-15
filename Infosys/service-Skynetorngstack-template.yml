@@ -1,0 +1,4642 @@
+tosca_definitions_version: tosca_simple_yaml_1_1
+metadata:
+  invariantUUID: d9ad7439-7294-4d7e-9dde-05aa5f4c3137
+  UUID: c186df66-1806-4172-9781-da0e83f92879
+  name: skynetorngstack
+  description: skynetorngstack
+  type: Service
+  category: Network Service
+  serviceType: ''
+  serviceRole: ''
+  instantiationType: A-la-carte
+  serviceEcompNaming: true
+  ecompGeneratedNaming: true
+  namingPolicy: ''
+  environmentContext: General_Revenue-Bearing
+imports:
+- nodes:
+    file: nodes.yml
+- datatypes:
+    file: data.yml
+- capabilities:
+    file: capabilities.yml
+- relationships:
+    file: relationships.yml
+- groups:
+    file: groups.yml
+- policies:
+    file: policies.yml
+- annotations:
+    file: annotations.yml
+- service-skynetorngstack-interface:
+    file: service-Skynetorngstack-template-interface.yml
+- resource-ims_VF:
+    file: resource-ImsVf-template.yml
+- resource-ims_VF-interface:
+    file: resource-ImsVf-template-interface.yml
+- resource-imsnum_VF:
+    file: resource-ImsnumVf-template.yml
+- resource-imsnum_VF-interface:
+    file: resource-ImsnumVf-template-interface.yml
+- resource-vVerifier_VF:
+    file: resource-VverifierVf-template.yml
+- resource-vVerifier_VF-interface:
+    file: resource-VverifierVf-template-interface.yml
+topology_template:
+  node_templates:
+    ims_VF 0:
+      type: org.openecomp.resource.vf.ImsVf
+      metadata:
+        invariantUUID: 1cc98ad4-1106-4a91-a2a8-4acafc581fce
+        UUID: f60fcdc0-8ab8-432e-bad6-3903a782caf0
+        customizationUUID: 4556fe26-dd11-424c-b4a5-226024aa19b1
+        version: '1.0'
+        name: ims_VF
+        description: VF
+        type: VF
+        category: Generic
+        subcategory: Abstract
+        resourceVendor: Generic-Vendor
+        resourceVendorRelease: '1.0'
+        resourceVendorModelNumber: ''
+      properties:
+        dime_name_0: dime
+        sprout_name_0: sprout
+        vf_module_id: '654321'
+        robot_flavor_name: onap.medium
+        homer_name_0: homer
+        homer_image_name: ubuntu-14.04-daily
+        vnf_name: vIMS
+        sprout_image_name: ubuntu-14.04-daily
+        ellis_image_name: ubuntu-14.04-daily
+        dnssec_key: 9FPdYTWhk5+LbhrqtTPQKw==
+        robot_image_name: ubuntu-14.04-daily
+        dime_flavor_name: onap.medium
+        bono_name_0: bono
+        homer_flavor_name: onap.medium
+        zone: vimstest.onap.org
+        vnf_id: '123456'
+        ellis_name_0: ellis
+        bono_image_name: ubuntu-14.04-daily
+        vellum_flavor_name: onap.medium
+        admin_plane_net_name: admin
+        dns_image_name: ubuntu-14.04-daily
+        clearwater_pub_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDY15cdBmIs2XOpe4EiFCsaY6bmUmK/GysMoLl4UG51JCfJwvwoWCoA+6mDIbymZxhxq9IGxilp/yTA6WQ9s/5pBag1cUMJmFuda9PjOkXl04jgqh5tR6I+GZ97AvCg93KAECis5ubSqw1xOCj4utfEUtPoF1OuzqM/lE5mY4N6VKXn+fT7pCD6cifBEs6JHhVNvs5OLLp/tO8Pa3kKYQOdyS0xc3rh+t2lrzvKUSWGZbX+dLiFiEpjsUL3tDqzkEMNUn4pdv69OJuzWHCxRWPfdrY9Wg0j3mJesP29EBht+w+EC9/kBKq+1VKdmsXUXAcjEvjovVL8l1BrX3BY0R8D imported-openssh-key
+        dns_flavor_name: onap.medium
+        repo_url: http://repo.cw-ngv.com/stable
+        ellis_flavor_name: onap.medium
+        nf_naming:
+          ecomp_generated_naming: true
+        multi_stage_design: false
+        availability_zone_max_count: 1
+        dn_range_length: '10000'
+        dn_range_start: '2425550000'
+        robot_name_0: robot
+        dime_image_name: ubuntu-14.04-daily
+        clearwater_key_name: vims_demo
+        vellum_image_name: ubuntu-14.04-daily
+        bono_flavor_name: onap.medium
+        dns_name_0: dns
+        vellum_name_0: vellum
+        sprout_flavor_name: onap.medium
+      capabilities:
+        homer.disk.device.write.bytes_homer_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        vellum.disk.write.requests_vellum_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        dns.disk.root.size_dns_server_0:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        dime.cpu.delta_dime_server_0:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        dime.disk.read.requests_dime_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        sprout.network.outgoing.packets.rate_sprout_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        dns.disk.device.write.bytes_dns_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        dime.disk.device.write.requests_dime_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        ellis.vcpus_ellis_server_0:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        homer.network.incoming.packets.rate_homer_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        vellum.disk.device.iops_vellum_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        vellum.disk.read.bytes_vellum_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        dns.disk.capacity_dns_server_0:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        bono.disk.device.write.requests_bono_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        dns.memory.usage_dns_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        homer.memory_homer_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        ellis.disk.read.bytes.rate_ellis_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        ellis.disk.device.iops_ellis_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        bono.network.outgoing.bytes_bono_admin_port_0:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        dime.scalable_dime_server_0:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        sprout.disk.write.bytes.rate_sprout_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        dns.disk.allocation_dns_server_0:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        ellis.disk.capacity_ellis_server_0:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        dime.network.incoming.bytes.rate_dime_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        sprout.disk.write.requests.rate_sprout_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        homer.network.outgoing.packets.rate_homer_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        sprout.disk.read.bytes_sprout_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        vellum.scalable_vellum_server_0:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        sprout.disk.write.requests_sprout_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        ellis.disk.device.allocation_ellis_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        bono.disk.device.read.requests.rate_bono_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        dns.cpu_util_dns_server_0:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        bono.disk.read.requests_bono_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        dns.disk.write.requests_dns_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        dns.disk.device.usage_dns_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        dime.network.incoming.packets.rate_dime_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        dns.disk.device.capacity_dns_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        dns.disk.ephemeral.size_dns_server_0:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        sprout.instance_sprout_server_0:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        dime.disk.device.read.requests.rate_dime_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        dime.disk.allocation_dime_server_0:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        sprout.disk.device.allocation_sprout_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        abstract_robot.network.outpoing.packets_robot_robot_admin_plane_port:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        vellum.disk.device.read.requests.rate_vellum_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        ellis.disk.device.read.requests.rate_ellis_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        dns.disk.device.allocation_dns_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        dns.cpu.delta_dns_server_0:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        dime.disk.capacity_dime_server_0:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        dns.port_mirroring_dns_admin_port_0:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_dns_admin_port_0_network_role
+              nfc_naming_code: dns_server_0
+        homer.disk.write.requests_homer_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        vellum.disk.device.read.bytes_vellum_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        bono.port_mirroring_bono_admin_port_0:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_bono_admin_port_0_network_role
+              nfc_naming_code: bono_server_0
+        ellis.network.incoming.bytes_ellis_admin_port_0:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        dime.cpu_dime_server_0:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        sprout.network.outgoing.bytes_sprout_admin_port_0:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        bono.disk.iops_bono_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        ellis.disk.device.write.requests.rate_ellis_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        vellum.disk.capacity_vellum_server_0:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        dns.scalable_dns_server_0:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        dns.disk.write.bytes_dns_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        bono.vcpus_bono_server_0:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        homer.network.outpoing.packets_homer_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        homer.disk.device.read.requests.rate_homer_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        dns.disk.write.requests.rate_dns_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        homer.cpu_homer_server_0:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        abstract_robot.disk.device.allocation_robot:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        sprout.network.incoming.packets_sprout_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        bono.memory_bono_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        homer.disk.root.size_homer_server_0:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        abstract_robot.scalable_robot:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        homer.scalable_homer_server_0:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        homer.disk.read.bytes.rate_homer_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        abstract_robot.disk.device.write.requests.rate_robot:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        bono.disk.device.read.bytes.rate_bono_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        dime.vcpus_dime_server_0:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        bono.disk.device.usage_bono_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        homer.disk.read.requests_homer_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        ellis.memory.usage_ellis_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        bono.disk.allocation_bono_server_0:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        sprout.network.outpoing.packets_sprout_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        dns.vcpus_dns_server_0:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        dns.network.incoming.bytes_dns_admin_port_0:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        sprout.disk.device.write.requests_sprout_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        sprout.cpu.delta_sprout_server_0:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        ellis.disk.write.bytes_ellis_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        vellum.disk.ephemeral.size_vellum_server_0:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        ellis.cpu.delta_ellis_server_0:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        homer.disk.allocation_homer_server_0:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        abstract_robot.disk.device.latency_robot:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        abstract_robot.port_mirroring_robot_robot_admin_plane_port:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_robot_admin_plane_port_network_role
+              nfc_naming_code: robot
+        vellum.network.incoming.bytes_vellum_admin_port_0:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        abstract_robot.cpu_util_robot:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        dns.disk.iops_dns_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        dime.disk.device.usage_dime_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        dns.memory_dns_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        vellum.disk.allocation_vellum_server_0:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        ellis.endpoint_ellis_server_0:
+          properties:
+            secure: true
+        abstract_robot.disk.root.size_robot:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        bono.disk.device.write.bytes_bono_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        bono.disk.usage_bono_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        vellum.memory.resident_vellum_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        bono.disk.ephemeral.size_bono_server_0:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        dns.disk.device.write.requests_dns_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        dime.disk.device.read.bytes_dime_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        ellis.instance_ellis_server_0:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        dime.disk.ephemeral.size_dime_server_0:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        abstract_robot.network.incoming.packets.rate_robot_robot_admin_plane_port:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        homer.network.incoming.bytes.rate_homer_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        homer.disk.latency_homer_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        dime.disk.write.bytes_dime_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        sprout.disk.latency_sprout_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        sprout.disk.device.read.bytes_sprout_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        vellum.network.outgoing.bytes_vellum_admin_port_0:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        ellis.disk.read.bytes_ellis_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        vellum.disk.root.size_vellum_server_0:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        ellis.disk.device.write.bytes.rate_ellis_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        abstract_robot.disk.read.bytes.rate_robot:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        ellis.disk.usage_ellis_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        dns.disk.device.write.bytes.rate_dns_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        vellum.disk.write.bytes.rate_vellum_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        homer.disk.device.usage_homer_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        bono.disk.root.size_bono_server_0:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        homer.cpu_util_homer_server_0:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        vellum.network.outgoing.bytes.rate_vellum_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        vellum.cpu_vellum_server_0:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        bono.cpu_util_bono_server_0:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        bono.network.incoming.packets_bono_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        dns.disk.device.latency_dns_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        sprout.disk.device.write.requests.rate_sprout_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        vellum.disk.write.bytes_vellum_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        dime.port_mirroring_dime_admin_port_0:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_dime_admin_port_0_network_role
+              nfc_naming_code: dime_server_0
+        bono.network.outgoing.packets.rate_bono_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        homer.disk.usage_homer_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        sprout.network.outgoing.bytes.rate_sprout_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        abstract_robot.disk.device.write.bytes_robot:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        ellis.network.outgoing.bytes.rate_ellis_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        ellis.disk.device.read.bytes_ellis_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        ellis.scalable_ellis_server_0:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        abstract_robot.disk.device.iops_robot:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        abstract_robot.memory.usage_robot:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        ellis.disk.device.read.bytes.rate_ellis_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        sprout.disk.device.read.requests.rate_sprout_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        ellis.network.outgoing.bytes_ellis_admin_port_0:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        bono.disk.device.write.bytes.rate_bono_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        abstract_robot.disk.latency_robot:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        vellum.network.incoming.packets.rate_vellum_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        bono.memory.resident_bono_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        homer.memory.usage_homer_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        homer.disk.write.bytes.rate_homer_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        ellis.network.incoming.bytes.rate_ellis_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        dns.disk.device.read.bytes_dns_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        dns.network.incoming.packets_dns_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        homer.disk.device.allocation_homer_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        abstract_robot.endpoint_robot:
+          properties:
+            secure: true
+        homer.network.outgoing.bytes_homer_admin_port_0:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        vellum.disk.device.write.bytes.rate_vellum_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        dns.memory.resident_dns_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        bono.disk.device.latency_bono_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        dime.network.outgoing.bytes.rate_dime_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        sprout.cpu_sprout_server_0:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        abstract_robot.disk.device.read.requests.rate_robot:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        dns.disk.device.read.bytes.rate_dns_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        homer.network.outgoing.bytes.rate_homer_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        dime.network.outpoing.packets_dime_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        abstract_robot.disk.device.write.requests_robot:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        abstract_robot.cpu.delta_robot:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        sprout.disk.allocation_sprout_server_0:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        dns.instance_dns_server_0:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        homer.endpoint_homer_server_0:
+          properties:
+            secure: true
+        sprout.network.incoming.packets.rate_sprout_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        ellis.disk.write.bytes.rate_ellis_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        homer.port_mirroring_homer_admin_port_0:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_homer_admin_port_0_network_role
+              nfc_naming_code: homer_server_0
+        abstract_robot.vcpus_robot:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        abstract_robot.disk.read.requests_robot:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        vellum.network.outpoing.packets_vellum_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        vellum.endpoint_vellum_server_0:
+          properties:
+            secure: true
+        dns.cpu_dns_server_0:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        bono.network.incoming.bytes_bono_admin_port_0:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        vellum.vcpus_vellum_server_0:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        abstract_robot.disk.write.bytes_robot:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        sprout.memory.usage_sprout_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        abstract_robot.disk.write.requests_robot:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        vellum.port_mirroring_vellum_admin_port_0:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_vellum_admin_port_0_network_role
+              nfc_naming_code: vellum_server_0
+        abstract_robot.disk.device.read.bytes_robot:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        ellis.disk.write.requests.rate_ellis_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        vellum.disk.latency_vellum_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        sprout.disk.device.capacity_sprout_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        dime.disk.iops_dime_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        vellum.disk.device.write.requests.rate_vellum_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        vellum.disk.usage_vellum_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        abstract_robot.memory_robot:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        homer.disk.read.bytes_homer_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        homer.disk.device.read.requests_homer_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        bono.disk.latency_bono_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        abstract_robot.disk.usage_robot:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        bono.disk.write.bytes_bono_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        bono.disk.device.iops_bono_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        sprout.disk.device.read.requests_sprout_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        vellum.instance_vellum_server_0:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        abstract_robot.network.outgoing.bytes.rate_robot_robot_admin_plane_port:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        abstract_robot.network.outgoing.packets.rate_robot_robot_admin_plane_port:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        dime.cpu_util_dime_server_0:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        dime.disk.latency_dime_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        homer.disk.device.write.bytes.rate_homer_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        ellis.disk.device.write.requests_ellis_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        vellum.disk.device.write.requests_vellum_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        sprout.scalable_sprout_server_0:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        dns.disk.device.write.requests.rate_dns_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        bono.disk.read.bytes_bono_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        homer.instance_homer_server_0:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        dime.network.outgoing.packets.rate_dime_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        homer.disk.device.write.requests_homer_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        sprout.disk.device.usage_sprout_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        bono.disk.write.bytes.rate_bono_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        dns.disk.device.read.requests.rate_dns_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        ellis.disk.latency_ellis_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        dime.disk.device.read.requests_dime_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        dime.disk.device.latency_dime_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        vellum.cpu_util_vellum_server_0:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        abstract_robot.network.incoming.bytes_robot_robot_admin_plane_port:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        ellis.memory_ellis_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        ellis.cpu_util_ellis_server_0:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        sprout.disk.device.iops_sprout_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        dime.network.incoming.packets_dime_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        dime.endpoint_dime_server_0:
+          properties:
+            secure: true
+        abstract_robot.network.outgoing.bytes_robot_robot_admin_plane_port:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        dime.disk.device.write.bytes_dime_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        bono.cpu_bono_server_0:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        ellis.disk.device.write.bytes_ellis_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        abstract_robot.disk.allocation_robot:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        dns.disk.read.bytes_dns_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        dime.disk.device.read.bytes.rate_dime_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        abstract_robot.disk.write.requests.rate_robot:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        bono.network.incoming.bytes.rate_bono_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        vellum.disk.device.usage_vellum_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        ellis.network.incoming.packets.rate_ellis_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        abstract_robot.disk.write.bytes.rate_robot:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        bono.disk.device.read.requests_bono_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        dime.disk.write.requests.rate_dime_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        sprout.memory_sprout_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        ellis.disk.allocation_ellis_server_0:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        vellum.disk.device.read.requests_vellum_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        ellis.disk.device.usage_ellis_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        abstract_robot.memory.resident_robot:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        sprout.disk.usage_sprout_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        sprout.disk.device.write.bytes_sprout_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        sprout.disk.iops_sprout_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        homer.network.incoming.bytes_homer_admin_port_0:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        sprout.disk.read.requests_sprout_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        bono.disk.device.write.requests.rate_bono_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        dime.disk.device.capacity_dime_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        dime.network.outgoing.bytes_dime_admin_port_0:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        ellis.disk.write.requests_ellis_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        homer.cpu.delta_homer_server_0:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        ellis.port_mirroring_ellis_admin_port_0:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_ellis_admin_port_0_network_role
+              nfc_naming_code: ellis_server_0
+        abstract_robot.disk.device.write.bytes.rate_robot:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        bono.network.outpoing.packets_bono_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        ellis.disk.device.latency_ellis_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        homer.disk.device.latency_homer_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        homer.disk.device.read.bytes_homer_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        vellum.memory.usage_vellum_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        bono.disk.device.allocation_bono_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        ellis.network.outgoing.packets.rate_ellis_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        sprout.disk.write.bytes_sprout_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        dime.disk.usage_dime_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        dns.disk.read.requests_dns_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        homer.memory.resident_homer_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        dime.disk.write.bytes.rate_dime_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        bono.endpoint_bono_server_0:
+          properties:
+            secure: true
+        homer.network.incoming.packets_homer_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        abstract_robot.network.incoming.bytes.rate_robot_robot_admin_plane_port:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        dns.network.incoming.packets.rate_dns_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        abstract_robot.disk.read.bytes_robot:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        vellum.disk.write.requests.rate_vellum_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        vellum.disk.read.requests_vellum_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        bono.memory.usage_bono_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        dime.memory.resident_dime_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        homer.disk.device.capacity_homer_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        dime.disk.read.bytes_dime_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        vellum.disk.device.capacity_vellum_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        dime.disk.read.bytes.rate_dime_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        abstract_robot.disk.device.read.requests_robot:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        abstract_robot.instance_robot:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        dns.network.outgoing.packets.rate_dns_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        bono.cpu.delta_bono_server_0:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        ellis.memory.resident_ellis_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        ellis.disk.ephemeral.size_ellis_server_0:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        vellum.disk.device.allocation_vellum_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        dns.disk.device.iops_dns_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        sprout.disk.ephemeral.size_sprout_server_0:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        dime.disk.device.iops_dime_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        sprout.memory.resident_sprout_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        dns.network.outgoing.bytes_dns_admin_port_0:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        dns.disk.latency_dns_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        vellum.disk.device.latency_vellum_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        bono.scalable_bono_server_0:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        bono.network.incoming.packets.rate_bono_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        sprout.disk.root.size_sprout_server_0:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        homer.vcpus_homer_server_0:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        homer.disk.capacity_homer_server_0:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        sprout.disk.capacity_sprout_server_0:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        ellis.disk.read.requests_ellis_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        homer.disk.device.write.requests.rate_homer_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        ellis.disk.device.capacity_ellis_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        dime.memory_dime_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        ellis.disk.device.read.requests_ellis_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        dime.memory.usage_dime_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        dns.disk.write.bytes.rate_dns_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        dime.disk.device.write.bytes.rate_dime_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        sprout.endpoint_sprout_server_0:
+          properties:
+            secure: true
+        dns.disk.usage_dns_server_0:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        dime.instance_dime_server_0:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        abstract_robot.cpu_robot:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        homer.disk.write.bytes_homer_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        vellum.disk.read.bytes.rate_vellum_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        dns.network.outgoing.bytes.rate_dns_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        bono.disk.device.read.bytes_bono_server_0:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        sprout.port_mirroring_sprout_admin_port_0:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_sprout_admin_port_0_network_role
+              nfc_naming_code: sprout_server_0
+        abstract_robot.disk.device.capacity_robot:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        abstract_robot.network.incoming.packets_robot_robot_admin_plane_port:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        sprout.disk.read.bytes.rate_sprout_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        ellis.disk.root.size_ellis_server_0:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        homer.disk.device.read.bytes.rate_homer_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        vellum.disk.iops_vellum_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        abstract_robot.disk.capacity_robot:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        homer.disk.write.requests.rate_homer_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        bono.disk.write.requests.rate_bono_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        dns.disk.read.bytes.rate_dns_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        abstract_robot.disk.ephemeral.size_robot:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        dns.endpoint_dns_server_0:
+          properties:
+            secure: true
+        dime.disk.write.requests_dime_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        dime.disk.device.write.requests.rate_dime_server_0:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        dime.disk.root.size_dime_server_0:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        dns.network.incoming.bytes.rate_dns_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        vellum.disk.device.write.bytes_vellum_server_0:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        dns.network.outpoing.packets_dns_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        vellum.network.incoming.bytes.rate_vellum_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        vellum.disk.device.read.bytes.rate_vellum_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        ellis.network.outpoing.packets_ellis_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        sprout.disk.device.write.bytes.rate_sprout_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        homer.disk.iops_homer_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        vellum.network.incoming.packets_vellum_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        sprout.network.incoming.bytes_sprout_admin_port_0:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        vellum.cpu.delta_vellum_server_0:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        sprout.network.incoming.bytes.rate_sprout_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        bono.disk.device.capacity_bono_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        homer.disk.device.iops_homer_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        sprout.cpu_util_sprout_server_0:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        abstract_robot.disk.device.usage_robot:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        dime.network.incoming.bytes_dime_admin_port_0:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        ellis.cpu_ellis_server_0:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        bono.disk.capacity_bono_server_0:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        bono.disk.read.bytes.rate_bono_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        sprout.vcpus_sprout_server_0:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        bono.disk.write.requests_bono_server_0:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        dns.disk.device.read.requests_dns_server_0:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        homer.disk.ephemeral.size_homer_server_0:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        abstract_robot.disk.device.read.bytes.rate_robot:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        bono.network.outgoing.bytes.rate_bono_admin_port_0:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        vellum.network.outgoing.packets.rate_vellum_admin_port_0:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        vellum.memory_vellum_server_0:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        abstract_robot.disk.iops_robot:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        sprout.disk.device.latency_sprout_server_0:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        ellis.disk.iops_ellis_server_0:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        dime.disk.device.allocation_dime_server_0:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        sprout.disk.device.read.bytes.rate_sprout_server_0:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        ellis.network.incoming.packets_ellis_admin_port_0:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        bono.instance_bono_server_0:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+    imsnum_VF 0:
+      type: org.openecomp.resource.vf.ImsnumVf
+      metadata:
+        invariantUUID: 25f9dcb7-f746-41f3-86a2-654d5baeb6b3
+        UUID: a3261a29-a4f9-4242-8cef-e0bda9df0bbb
+        customizationUUID: c8b7e031-dd83-4118-b1af-8393c7f052ae
+        version: '1.0'
+        name: imsnum_VF
+        description: VF
+        type: VF
+        category: Generic
+        subcategory: Abstract
+        resourceVendor: Generic-Vendor
+        resourceVendorRelease: '1.0'
+        resourceVendorModelNumber: ''
+      properties:
+        vf_module_id: Ubuntu16-VF-module
+        ubuntu16_name_0: ubuntu16
+        nf_naming:
+          ecomp_generated_naming: true
+        ubuntu16_flavor_name: onap.small
+        multi_stage_design: false
+        ubuntu16_pub_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDY15cdBmIs2XOpe4EiFCsaY6bmUmK/GysMoLl4UG51JCfJwvwoWCoA+6mDIbymZxhxq9IGxilp/yTA6WQ9s/5pBag1cUMJmFuda9PjOkXl04jgqh5tR6I+GZ97AvCg93KAECis5ubSqw1xOCj4utfEUtPoF1OuzqM/lE5mY4N6VKXn+fT7pCD6cifBEs6JHhVNvs5OLLp/tO8Pa3kKYQOdyS0xc3rh+t2lrzvKUSWGZbX+dLiFiEpjsUL3tDqzkEMNUn4pdv69OJuzWHCxRWPfdrY9Wg0j3mJesP29EBht+w+EC9/kBKq+1VKdmsXUXAcjEvjovVL8l1BrX3BY0R8D imported-openssh-key
+        availability_zone_max_count: 1
+        vnf_id: Ubuntu16-VNF
+        vnf_name: Ubuntu16-VNF-name
+        ubuntu16_image_name: ubuntu-16.04-daily
+        admin_plane_net_name: admin
+        ubuntu16_key_name: cleouverte
+      capabilities:
+        abstract_ubuntu16.port_mirroring_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            connection_point:
+              network_role:
+                get_input: port_ubuntu16_admin_plane_port_network_role
+              nfc_naming_code: ubuntu16
+        abstract_ubuntu16.cpu_util_ubuntu16:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.network.outpoing.packets_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: packet
+            description: Number of outgoing packets
+            type: Cumulative
+            category: network
+        abstract_ubuntu16.disk.device.read.bytes.rate_ubuntu16:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.endpoint_ubuntu16:
+          properties:
+            secure: true
+        abstract_ubuntu16.disk.ephemeral.size_ubuntu16:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.disk.write.bytes_ubuntu16:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        abstract_ubuntu16.cpu.delta_ubuntu16:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        abstract_ubuntu16.network.incoming.bytes.rate_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: B/s
+            description: Average rate of incoming bytes
+            type: Gauge
+            category: network
+        abstract_ubuntu16.network.incoming.bytes_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: B
+            description: Number of incoming bytes
+            type: Cumulative
+            category: network
+        abstract_ubuntu16.disk.write.requests.rate_ubuntu16:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.memory_ubuntu16:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.disk.root.size_ubuntu16:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.disk.device.usage_ubuntu16:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.write.requests_ubuntu16:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        abstract_ubuntu16.disk.device.read.bytes_ubuntu16:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        abstract_ubuntu16.vcpus_ubuntu16:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.network.incoming.packets.rate_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: packet/s
+            description: Average rate of incoming packets
+            type: Gauge
+            category: network
+        abstract_ubuntu16.network.incoming.packets_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: packet
+            description: Number of incoming packets
+            type: Cumulative
+            category: network
+        abstract_ubuntu16.disk.read.bytes_ubuntu16:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        abstract_ubuntu16.disk.latency_ubuntu16:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.device.read.requests.rate_ubuntu16:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.network.outgoing.bytes_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: B
+            description: Number of outgoing bytes
+            type: Cumulative
+            category: network
+        abstract_ubuntu16.scalable_ubuntu16:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        abstract_ubuntu16.disk.device.write.requests.rate_ubuntu16:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.device.allocation_ubuntu16:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.device.write.bytes_ubuntu16:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        abstract_ubuntu16.disk.device.capacity_ubuntu16:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.device.latency_ubuntu16:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.write.bytes.rate_ubuntu16:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.instance_ubuntu16:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.disk.iops_ubuntu16:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.capacity_ubuntu16:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.memory.resident_ubuntu16:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.disk.allocation_ubuntu16:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.network.outgoing.packets.rate_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: packet/s
+            description: Average rate of outgoing packets
+            type: Gauge
+            category: network
+        abstract_ubuntu16.disk.read.requests_ubuntu16:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        abstract_ubuntu16.network.outgoing.bytes.rate_ubuntu16_ubuntu16_admin_plane_port:
+          properties:
+            unit: B/s
+            description: Average rate of outgoing bytes
+            type: Gauge
+            category: network
+        abstract_ubuntu16.cpu_ubuntu16:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        abstract_ubuntu16.disk.device.iops_ubuntu16:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.device.read.requests_ubuntu16:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        abstract_ubuntu16.memory.usage_ubuntu16:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.disk.usage_ubuntu16:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.device.write.bytes.rate_ubuntu16:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        abstract_ubuntu16.disk.read.bytes.rate_ubuntu16:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        abstract_ubuntu16.disk.device.write.requests_ubuntu16:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+    vVerifier_VF 0:
+      type: org.openecomp.resource.vf.VverifierVf
+      metadata:
+        invariantUUID: a0748ff6-8884-4f73-bc1a-bfa31b3379cd
+        UUID: 33b782fd-d35c-4857-8967-8561a369aec2
+        customizationUUID: df81f025-f281-401a-943d-68fef1f591b1
+        version: '1.0'
+        name: vVerifier_VF
+        description: VF
+        type: VF
+        category: Generic
+        subcategory: Abstract
+        resourceVendor: Generic-Vendor
+        resourceVendorRelease: '1.0'
+        resourceVendorModelNumber: ''
+      properties:
+        nf_naming:
+          ecomp_generated_naming: true
+        NetID: 6c75896a-8c94-4e6c-b0b7-46e9ebe1f737
+        multi_stage_design: false
+        FlavorID: m1.small
+        availability_zone_max_count: 1
+        SecurityGroupID: 470450f9-324f-48d6-a220-0a3f71eee981
+        ImageID: 68a27872-4eaf-4ffa-94cf-2c8b232c5284
+      capabilities:
+        abstract_vverifier.disk.device.write.requests.rate_vVerifier:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: disk
+        abstract_vverifier.disk.iops_vVerifier:
+          properties:
+            unit: count/s
+            description: Average disk iops
+            type: Gauge
+            category: disk
+        abstract_vverifier.instance_vVerifier:
+          properties:
+            unit: instance
+            description: Existence of instance
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.device.allocation_vVerifier:
+          properties:
+            unit: B
+            description: The amount of disk per device occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        abstract_vverifier.disk.device.read.bytes_vVerifier:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: disk
+        abstract_vverifier.disk.device.read.requests.rate_vVerifier:
+          properties:
+            unit: request/s
+            description: Average rate of read requests
+            type: Gauge
+            category: disk
+        abstract_vverifier.cpu.delta_vVerifier:
+          properties:
+            unit: ns
+            description: CPU time used since previous datapoint
+            type: Delta
+            category: compute
+        abstract_vverifier.disk.root.size_vVerifier:
+          properties:
+            unit: GB
+            description: Size of root disk
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.read.bytes_vVerifier:
+          properties:
+            unit: B
+            description: Volume of reads
+            type: Cumulative
+            category: compute
+        abstract_vverifier.cpu_vVerifier:
+          properties:
+            unit: ns
+            description: CPU time used
+            type: Cumulative
+            category: compute
+        abstract_vverifier.disk.write.requests.rate_vVerifier:
+          properties:
+            unit: request/s
+            description: Average rate of write requests
+            type: Gauge
+            category: compute
+        abstract_vverifier.memory_vVerifier:
+          properties:
+            unit: MB
+            description: Volume of RAM allocated to the instance
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.device.latency_vVerifier:
+          properties:
+            unit: ms
+            description: Average disk latency per device
+            type: Gauge
+            category: disk
+        abstract_vverifier.disk.read.bytes.rate_vVerifier:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.device.iops_vVerifier:
+          properties:
+            unit: count/s
+            description: Average disk iops per device
+            type: Gauge
+            category: disk
+        abstract_vverifier.endpoint_vVerifier:
+          properties:
+            secure: true
+        abstract_vverifier.disk.write.bytes.rate_vVerifier:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.latency_vVerifier:
+          properties:
+            unit: ms
+            description: Average disk latency
+            type: Gauge
+            category: disk
+        abstract_vverifier.vcpus_vVerifier:
+          properties:
+            unit: vcpu
+            description: Number of virtual CPUs allocated to the instance
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.usage_vVerifier:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host
+            type: Gauge
+            category: disk
+        abstract_vverifier.disk.device.capacity_vVerifier:
+          properties:
+            unit: B
+            description: The amount of disk per device that the instance can see
+            type: Gauge
+            category: disk
+        abstract_vverifier.memory.usage_vVerifier:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance from the amount of its allocated memory
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.device.usage_vVerifier:
+          properties:
+            unit: B
+            description: The physical size in bytes of the image container on the host per device
+            type: Gauge
+            category: disk
+        abstract_vverifier.disk.device.write.bytes.rate_vVerifier:
+          properties:
+            unit: B/s
+            description: Average rate of writes
+            type: Gauge
+            category: disk
+        abstract_vverifier.disk.write.requests_vVerifier:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: compute
+        abstract_vverifier.disk.write.bytes_vVerifier:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: compute
+        abstract_vverifier.disk.ephemeral.size_vVerifier:
+          properties:
+            unit: GB
+            description: Size of ephemeral disk
+            type: Gauge
+            category: compute
+        abstract_vverifier.scalable_vVerifier:
+          properties:
+            max_instances: 1
+            min_instances: 1
+        abstract_vverifier.disk.device.write.bytes_vVerifier:
+          properties:
+            unit: B
+            description: Volume of writes
+            type: Cumulative
+            category: disk
+        abstract_vverifier.disk.device.write.requests_vVerifier:
+          properties:
+            unit: request
+            description: Number of write requests
+            type: Cumulative
+            category: disk
+        abstract_vverifier.disk.read.requests_vVerifier:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: compute
+        abstract_vverifier.disk.allocation_vVerifier:
+          properties:
+            unit: B
+            description: The amount of disk occupied by the instance on the host machine
+            type: Gauge
+            category: disk
+        abstract_vverifier.disk.capacity_vVerifier:
+          properties:
+            unit: B
+            description: The amount of disk that the instance can see
+            type: Gauge
+            category: disk
+        abstract_vverifier.cpu_util_vVerifier:
+          properties:
+            unit: '%'
+            description: Average CPU utilization
+            type: Gauge
+            category: compute
+        abstract_vverifier.disk.device.read.requests_vVerifier:
+          properties:
+            unit: request
+            description: Number of read requests
+            type: Cumulative
+            category: disk
+        abstract_vverifier.disk.device.read.bytes.rate_vVerifier:
+          properties:
+            unit: B/s
+            description: Average rate of reads
+            type: Gauge
+            category: disk
+        abstract_vverifier.memory.resident_vVerifier:
+          properties:
+            unit: MB
+            description: Volume of RAM used by the instance on the physical machine
+            type: Gauge
+            category: compute
+  groups:
+    imsnum_vf0..ImsnumVf..base_imsnum..module-0:
+      type: org.openecomp.groups.VfModule
+      metadata:
+        vfModuleModelName: ImsnumVf..base_imsnum..module-0
+        vfModuleModelInvariantUUID: c69137a9-5948-4bf3-a826-1e488553f621
+        vfModuleModelUUID: 7ef8078d-6f04-4c37-8550-c12c057e27dd
+        vfModuleModelVersion: '1'
+        vfModuleModelCustomizationUUID: 859defc1-e515-4b27-9770-24d0fb6ece34
+      properties:
+        min_vf_module_instances: 1
+        vf_module_label: base_imsnum
+        max_vf_module_instances: 1
+        vf_module_type: Base
+        isBase: true
+        initial_count: 1
+        volume_group: false
+    vverifier_vf0..VverifierVf..base_vVerifier..module-0:
+      type: org.openecomp.groups.VfModule
+      metadata:
+        vfModuleModelName: VverifierVf..base_vVerifier..module-0
+        vfModuleModelInvariantUUID: 4426852f-2fb2-4104-a936-805c15ab174a
+        vfModuleModelUUID: e58b9955-2523-42a5-9d96-1e57a4ff0c6c
+        vfModuleModelVersion: '1'
+        vfModuleModelCustomizationUUID: b229f57e-4fa1-45d2-be04-d43a1539a6cc
+      properties:
+        min_vf_module_instances: 1
+        vf_module_label: base_vVerifier
+        max_vf_module_instances: 1
+        vf_module_type: Base
+        isBase: true
+        initial_count: 1
+        volume_group: false
+    ims_vf0..ImsVf..base_clearwater..module-0:
+      type: org.openecomp.groups.VfModule
+      metadata:
+        vfModuleModelName: ImsVf..base_clearwater..module-0
+        vfModuleModelInvariantUUID: 17c1987a-d25d-4330-b738-1cc978f4ed25
+        vfModuleModelUUID: 41b2d459-4a37-42d0-a45b-6f4bfd532885
+        vfModuleModelVersion: '1'
+        vfModuleModelCustomizationUUID: 225def7d-2091-4c0f-b968-7c3771d43ff7
+      properties:
+        min_vf_module_instances: 1
+        vf_module_label: base_clearwater
+        max_vf_module_instances: 1
+        vf_module_type: Base
+        isBase: true
+        initial_count: 1
+        volume_group: false
+  substitution_mappings:
+    node_type: org.openecomp.service.Skynetorngstack
+    capabilities:
+      ims_vf0.abstract_robot.feature_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.feature_robot_robot_admin_plane_port
+      ims_vf0.dns.disk.root.size_dns_server_0:
+      - ims_vf0
+      - dns.disk.root.size_dns_server_0
+      ims_vf0.dns.binding_dns_server_0:
+      - ims_vf0
+      - dns.binding_dns_server_0
+      ims_vf0.dns.disk.device.latency_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.latency_dns_server_0
+      ims_vf0.homer.network.outpoing.packets_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.outpoing.packets_homer_admin_port_0
+      ims_vf0.ellis.disk.read.bytes.rate_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.read.bytes.rate_ellis_server_0
+      ims_vf0.bono.disk.write.requests.rate_bono_server_0:
+      - ims_vf0
+      - bono.disk.write.requests.rate_bono_server_0
+      imsnum_vf0.abstract_ubuntu16.host_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.host_ubuntu16
+      ims_vf0.sprout.disk.usage_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.usage_sprout_server_0
+      ims_vf0.bono.disk.iops_bono_server_0:
+      - ims_vf0
+      - bono.disk.iops_bono_server_0
+      ims_vf0.vellum.scalable_vellum_server_0:
+      - ims_vf0
+      - vellum.scalable_vellum_server_0
+      ims_vf0.vellum.disk.allocation_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.allocation_vellum_server_0
+      ims_vf0.sprout.feature_sprout_server_0:
+      - ims_vf0
+      - sprout.feature_sprout_server_0
+      imsnum_vf0.abstract_ubuntu16.network.outgoing.bytes_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.outgoing.bytes_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.dime.disk.ephemeral.size_dime_server_0:
+      - ims_vf0
+      - dime.disk.ephemeral.size_dime_server_0
+      ims_vf0.ellis.cpu_ellis_server_0:
+      - ims_vf0
+      - ellis.cpu_ellis_server_0
+      vverifier_vf0.abstract_vverifier.binding_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.binding_vVerifier
+      ims_vf0.dns.disk.device.read.requests.rate_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.read.requests.rate_dns_server_0
+      vverifier_vf0.abstract_vverifier.instance_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.instance_vVerifier
+      ims_vf0.abstract_robot.network.incoming.bytes.rate_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.incoming.bytes.rate_robot_robot_admin_plane_port
+      ims_vf0.robot_0_security_group.feature:
+      - ims_vf0
+      - robot_0_security_group.feature
+      ims_vf0.bono.disk.device.usage_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.usage_bono_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.write.bytes.rate_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.write.bytes.rate_ubuntu16
+      ims_vf0.bono.memory_bono_server_0:
+      - ims_vf0
+      - bono.memory_bono_server_0
+      ims_vf0.bono.disk.write.requests_bono_server_0:
+      - ims_vf0
+      - bono.disk.write.requests_bono_server_0
+      ims_vf0.homer.network.incoming.bytes.rate_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.incoming.bytes.rate_homer_admin_port_0
+      ims_vf0.abstract_robot.disk.iops_robot:
+      - ims_vf0
+      - abstract_robot.disk.iops_robot
+      ims_vf0.bono.feature_bono_server_0:
+      - ims_vf0
+      - bono.feature_bono_server_0
+      ims_vf0.vellum.disk.write.bytes_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.write.bytes_vellum_server_0
+      vverifier_vf0.abstract_vverifier.cpu.delta_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.cpu.delta_vVerifier
+      ims_vf0.ellis.disk.latency_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.latency_ellis_server_0
+      ims_vf0.homer.cpu_homer_server_0:
+      - ims_vf0
+      - homer.cpu_homer_server_0
+      ims_vf0.bono.disk.device.read.requests.rate_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.read.requests.rate_bono_server_0
+      ims_vf0.homer.memory_homer_server_0:
+      - ims_vf0
+      - homer.memory_homer_server_0
+      ims_vf0.vellum.disk.root.size_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.root.size_vellum_server_0
+      ims_vf0.abstract_robot.disk.write.requests_robot:
+      - ims_vf0
+      - abstract_robot.disk.write.requests_robot
+      imsnum_vf0.abstract_ubuntu16.feature_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.feature_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.vellum.network.outgoing.bytes.rate_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.outgoing.bytes.rate_vellum_admin_port_0
+      vverifier_vf0.abstract_vverifier.disk.device.capacity_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.capacity_vVerifier
+      vverifier_vf0.abstract_vverifier.memory.resident_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.memory.resident_vVerifier
+      ims_vf0.dime.disk.device.allocation_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.allocation_dime_server_0
+      ims_vf0.homer.disk.ephemeral.size_homer_server_0:
+      - ims_vf0
+      - homer.disk.ephemeral.size_homer_server_0
+      imsnum_vf0.abstract_ubuntu16.network.outpoing.packets_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.outpoing.packets_ubuntu16_ubuntu16_admin_plane_port
+      imsnum_vf0.abstract_ubuntu16.vcpus_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.vcpus_ubuntu16
+      imsnum_vf0.abstract_ubuntu16.disk.capacity_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.capacity_ubuntu16
+      ims_vf0.vellum.disk.device.read.bytes.rate_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.read.bytes.rate_vellum_server_0
+      ims_vf0.ellis.binding_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.binding_ellis_admin_port_0
+      ims_vf0.vellum.host_vellum_server_0:
+      - ims_vf0
+      - vellum.host_vellum_server_0
+      ims_vf0.dns.disk.ephemeral.size_dns_server_0:
+      - ims_vf0
+      - dns.disk.ephemeral.size_dns_server_0
+      ims_vf0.vellum.vcpus_vellum_server_0:
+      - ims_vf0
+      - vellum.vcpus_vellum_server_0
+      ims_vf0.homer.disk.device.write.requests_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.write.requests_homer_server_0
+      ims_vf0.dime.memory_dime_server_0:
+      - ims_vf0
+      - dime.memory_dime_server_0
+      ims_vf0.dime.disk.read.bytes_dime_server_0:
+      - ims_vf0
+      - dime.disk.read.bytes_dime_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.device.usage_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.usage_ubuntu16
+      ims_vf0.homer.disk.usage_homer_server_0:
+      - ims_vf0
+      - homer.disk.usage_homer_server_0
+      ims_vf0.vellum.feature_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.feature_vellum_admin_port_0
+      ims_vf0.abstract_robot.network.incoming.packets_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.incoming.packets_robot_robot_admin_plane_port
+      imsnum_vf0.abstract_ubuntu16.memory.usage_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.memory.usage_ubuntu16
+      ims_vf0.vellum.disk.device.read.requests.rate_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.read.requests.rate_vellum_server_0
+      ims_vf0.vellum.disk.read.bytes_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.read.bytes_vellum_server_0
+      ims_vf0.bono.disk.allocation_bono_server_0:
+      - ims_vf0
+      - bono.disk.allocation_bono_server_0
+      imsnum_vf0.abstract_ubuntu16.cpu_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.cpu_ubuntu16
+      ims_vf0.homer.disk.write.bytes.rate_homer_server_0:
+      - ims_vf0
+      - homer.disk.write.bytes.rate_homer_server_0
+      ims_vf0.ellis.disk.device.write.requests_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.write.requests_ellis_server_0
+      ims_vf0.sprout.disk.device.usage_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.usage_sprout_server_0
+      ims_vf0.bono.network.outpoing.packets_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.outpoing.packets_bono_admin_port_0
+      ims_vf0.dime.disk.usage_dime_server_0:
+      - ims_vf0
+      - dime.disk.usage_dime_server_0
+      ims_vf0.dime.disk.write.bytes_dime_server_0:
+      - ims_vf0
+      - dime.disk.write.bytes_dime_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.allocation_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.allocation_vVerifier
+      imsnum_vf0.abstract_ubuntu16.disk.device.write.requests.rate_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.write.requests.rate_ubuntu16
+      ims_vf0.sprout.disk.iops_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.iops_sprout_server_0
+      ims_vf0.dime.disk.device.read.requests_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.read.requests_dime_server_0
+      ims_vf0.vellum.disk.iops_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.iops_vellum_server_0
+      ims_vf0.dime.disk.device.write.bytes.rate_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.write.bytes.rate_dime_server_0
+      ims_vf0.homer.disk.device.read.requests_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.read.requests_homer_server_0
+      ims_vf0.sprout.memory.usage_sprout_server_0:
+      - ims_vf0
+      - sprout.memory.usage_sprout_server_0
+      vverifier_vf0.abstract_vverifier.disk.write.requests.rate_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.write.requests.rate_vVerifier
+      ims_vf0.sprout.disk.device.latency_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.latency_sprout_server_0
+      ims_vf0.homer.network.incoming.bytes_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.incoming.bytes_homer_admin_port_0
+      vverifier_vf0.abstract_vverifier.disk.latency_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.latency_vVerifier
+      ims_vf0.dns.memory_dns_server_0:
+      - ims_vf0
+      - dns.memory_dns_server_0
+      ims_vf0.abstract_robot.disk.read.bytes.rate_robot:
+      - ims_vf0
+      - abstract_robot.disk.read.bytes.rate_robot
+      ims_vf0.dime.network.incoming.packets.rate_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.incoming.packets.rate_dime_admin_port_0
+      ims_vf0.abstract_robot.instance_robot:
+      - ims_vf0
+      - abstract_robot.instance_robot
+      ims_vf0.homer.disk.read.bytes_homer_server_0:
+      - ims_vf0
+      - homer.disk.read.bytes_homer_server_0
+      ims_vf0.ellis.disk.device.read.requests.rate_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.read.requests.rate_ellis_server_0
+      ims_vf0.dns.host_dns_server_0:
+      - ims_vf0
+      - dns.host_dns_server_0
+      ims_vf0.dime.disk.device.read.bytes_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.read.bytes_dime_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.device.iops_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.iops_ubuntu16
+      ims_vf0.homer.disk.device.write.bytes_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.write.bytes_homer_server_0
+      ims_vf0.ellis.disk.device.write.bytes_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.write.bytes_ellis_server_0
+      imsnum_vf0.abstract_ubuntu16.network.incoming.packets_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.incoming.packets_ubuntu16_ubuntu16_admin_plane_port
+      imsnum_vf0.abstract_ubuntu16.disk.read.requests_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.read.requests_ubuntu16
+      ims_vf0.ellis.host_ellis_server_0:
+      - ims_vf0
+      - ellis.host_ellis_server_0
+      ims_vf0.homer.cpu.delta_homer_server_0:
+      - ims_vf0
+      - homer.cpu.delta_homer_server_0
+      ims_vf0.abstract_robot.vcpus_robot:
+      - ims_vf0
+      - abstract_robot.vcpus_robot
+      ims_vf0.abstract_robot.memory.resident_robot:
+      - ims_vf0
+      - abstract_robot.memory.resident_robot
+      ims_vf0.vellum.endpoint_vellum_server_0:
+      - ims_vf0
+      - vellum.endpoint_vellum_server_0
+      ims_vf0.dns.disk.iops_dns_server_0:
+      - ims_vf0
+      - dns.disk.iops_dns_server_0
+      ims_vf0.homer.binding_homer_admin_port_0:
+      - ims_vf0
+      - homer.binding_homer_admin_port_0
+      imsnum_vf0.abstract_ubuntu16.port_mirroring_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.port_mirroring_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.sprout.disk.read.requests_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.read.requests_sprout_server_0
+      ims_vf0.homer.forwarder_homer_admin_port_0:
+      - ims_vf0
+      - homer.forwarder_homer_admin_port_0
+      ims_vf0.dns.disk.allocation_dns_server_0:
+      - ims_vf0
+      - dns.disk.allocation_dns_server_0
+      ims_vf0.homer.network.outgoing.bytes.rate_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.outgoing.bytes.rate_homer_admin_port_0
+      ims_vf0.homer.memory.resident_homer_server_0:
+      - ims_vf0
+      - homer.memory.resident_homer_server_0
+      ims_vf0.bono.network.incoming.bytes_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.incoming.bytes_bono_admin_port_0
+      ims_vf0.dns.disk.device.write.bytes.rate_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.write.bytes.rate_dns_server_0
+      ims_vf0.abstract_robot.memory_robot:
+      - ims_vf0
+      - abstract_robot.memory_robot
+      ims_vf0.ellis.disk.device.read.bytes.rate_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.read.bytes.rate_ellis_server_0
+      ims_vf0.bono.cpu_util_bono_server_0:
+      - ims_vf0
+      - bono.cpu_util_bono_server_0
+      ims_vf0.sprout.disk.write.requests.rate_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.write.requests.rate_sprout_server_0
+      ims_vf0.vellum.disk.usage_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.usage_vellum_server_0
+      ims_vf0.homer.port_mirroring_homer_admin_port_0:
+      - ims_vf0
+      - homer.port_mirroring_homer_admin_port_0
+      vverifier_vf0.abstract_vverifier.disk.write.requests_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.write.requests_vVerifier
+      ims_vf0.homer.disk.allocation_homer_server_0:
+      - ims_vf0
+      - homer.disk.allocation_homer_server_0
+      ims_vf0.bono.disk.device.write.requests.rate_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.write.requests.rate_bono_server_0
+      ims_vf0.vellum.binding_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.binding_vellum_admin_port_0
+      ims_vf0.sprout.memory_sprout_server_0:
+      - ims_vf0
+      - sprout.memory_sprout_server_0
+      ims_vf0.abstract_robot.disk.read.bytes_robot:
+      - ims_vf0
+      - abstract_robot.disk.read.bytes_robot
+      imsnum_vf0.abstract_ubuntu16.network.incoming.bytes_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.incoming.bytes_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.abstract_robot.port_mirroring_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.port_mirroring_robot_robot_admin_plane_port
+      ims_vf0.vellum.disk.device.latency_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.latency_vellum_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.write.requests_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.write.requests_ubuntu16
+      ims_vf0.bono.network.incoming.bytes.rate_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.incoming.bytes.rate_bono_admin_port_0
+      vverifier_vf0.abstract_vverifier.disk.allocation_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.allocation_vVerifier
+      ims_vf0.homer.feature_homer_server_0:
+      - ims_vf0
+      - homer.feature_homer_server_0
+      ims_vf0.ellis.vcpus_ellis_server_0:
+      - ims_vf0
+      - ellis.vcpus_ellis_server_0
+      ims_vf0.ellis.scalable_ellis_server_0:
+      - ims_vf0
+      - ellis.scalable_ellis_server_0
+      ims_vf0.abstract_robot.disk.device.read.requests.rate_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.read.requests.rate_robot
+      ims_vf0.sprout.network.incoming.packets.rate_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.incoming.packets.rate_sprout_admin_port_0
+      ims_vf0.vellum.network.outpoing.packets_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.outpoing.packets_vellum_admin_port_0
+      ims_vf0.abstract_robot.disk.write.bytes_robot:
+      - ims_vf0
+      - abstract_robot.disk.write.bytes_robot
+      ims_vf0.dime.disk.latency_dime_server_0:
+      - ims_vf0
+      - dime.disk.latency_dime_server_0
+      ims_vf0.ellis.disk.device.read.requests_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.read.requests_ellis_server_0
+      ims_vf0.homer.os_homer_server_0:
+      - ims_vf0
+      - homer.os_homer_server_0
+      ims_vf0.vellum.disk.read.bytes.rate_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.read.bytes.rate_vellum_server_0
+      ims_vf0.bono.disk.latency_bono_server_0:
+      - ims_vf0
+      - bono.disk.latency_bono_server_0
+      ims_vf0.dns.disk.device.read.bytes.rate_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.read.bytes.rate_dns_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.write.bytes_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.write.bytes_ubuntu16
+      imsnum_vf0.abstract_ubuntu16.disk.root.size_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.root.size_ubuntu16
+      ims_vf0.sprout.disk.device.read.requests_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.read.requests_sprout_server_0
+      ims_vf0.abstract_robot.disk.usage_robot:
+      - ims_vf0
+      - abstract_robot.disk.usage_robot
+      ims_vf0.dime.disk.capacity_dime_server_0:
+      - ims_vf0
+      - dime.disk.capacity_dime_server_0
+      ims_vf0.ellis.memory.usage_ellis_server_0:
+      - ims_vf0
+      - ellis.memory.usage_ellis_server_0
+      ims_vf0.bono.disk.device.allocation_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.allocation_bono_server_0
+      ims_vf0.abstract_robot.disk.write.bytes.rate_robot:
+      - ims_vf0
+      - abstract_robot.disk.write.bytes.rate_robot
+      ims_vf0.vellum.memory.resident_vellum_server_0:
+      - ims_vf0
+      - vellum.memory.resident_vellum_server_0
+      ims_vf0.dns.disk.device.read.bytes_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.read.bytes_dns_server_0
+      ims_vf0.bono.cpu.delta_bono_server_0:
+      - ims_vf0
+      - bono.cpu.delta_bono_server_0
+      ims_vf0.dns.disk.capacity_dns_server_0:
+      - ims_vf0
+      - dns.disk.capacity_dns_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.write.requests_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.write.requests_vVerifier
+      imsnum_vf0.abstract_ubuntu16.disk.device.read.bytes.rate_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.read.bytes.rate_ubuntu16
+      imsnum_vf0.abstract_ubuntu16.cpu.delta_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.cpu.delta_ubuntu16
+      ims_vf0.bono.network.incoming.packets_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.incoming.packets_bono_admin_port_0
+      ims_vf0.sprout.disk.device.iops_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.iops_sprout_server_0
+      ims_vf0.ellis.memory_ellis_server_0:
+      - ims_vf0
+      - ellis.memory_ellis_server_0
+      ims_vf0.ellis.binding_ellis_server_0:
+      - ims_vf0
+      - ellis.binding_ellis_server_0
+      ims_vf0.dime.endpoint_dime_server_0:
+      - ims_vf0
+      - dime.endpoint_dime_server_0
+      ims_vf0.ellis.network.outgoing.bytes.rate_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.outgoing.bytes.rate_ellis_admin_port_0
+      ims_vf0.abstract_robot.scalable_robot:
+      - ims_vf0
+      - abstract_robot.scalable_robot
+      imsnum_vf0.abstract_ubuntu16.feature_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.feature_ubuntu16
+      ims_vf0.ellis.feature_ellis_server_0:
+      - ims_vf0
+      - ellis.feature_ellis_server_0
+      ims_vf0.ellis.instance_ellis_server_0:
+      - ims_vf0
+      - ellis.instance_ellis_server_0
+      ims_vf0.abstract_robot.network.outpoing.packets_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.outpoing.packets_robot_robot_admin_plane_port
+      ims_vf0.bono.memory.resident_bono_server_0:
+      - ims_vf0
+      - bono.memory.resident_bono_server_0
+      vverifier_vf0.abstract_vverifier.host_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.host_vVerifier
+      ims_vf0.vellum.disk.device.write.requests.rate_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.write.requests.rate_vellum_server_0
+      vverifier_vf0.abstract_vverifier.os_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.os_vVerifier
+      ims_vf0.sprout.feature_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.feature_sprout_admin_port_0
+      ims_vf0.ellis.disk.iops_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.iops_ellis_server_0
+      ims_vf0.vellum.disk.capacity_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.capacity_vellum_server_0
+      ims_vf0.sprout.disk.device.write.bytes_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.write.bytes_sprout_server_0
+      ims_vf0.vellum.port_mirroring_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.port_mirroring_vellum_admin_port_0
+      imsnum_vf0.abstract_ubuntu16.disk.device.write.requests_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.write.requests_ubuntu16
+      ims_vf0.ellis.network.outgoing.packets.rate_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.outgoing.packets.rate_ellis_admin_port_0
+      ims_vf0.sprout.disk.root.size_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.root.size_sprout_server_0
+      vverifier_vf0.abstract_vverifier.memory.usage_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.memory.usage_vVerifier
+      ims_vf0.dime.binding_dime_server_0:
+      - ims_vf0
+      - dime.binding_dime_server_0
+      vverifier_vf0.abstract_vverifier.disk.read.bytes.rate_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.read.bytes.rate_vVerifier
+      ims_vf0.ellis.disk.device.iops_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.iops_ellis_server_0
+      ims_vf0.sprout.disk.device.read.requests.rate_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.read.requests.rate_sprout_server_0
+      ims_vf0.dns.disk.device.usage_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.usage_dns_server_0
+      ims_vf0.sprout.feature_sprout_security_group:
+      - ims_vf0
+      - sprout.feature_sprout_security_group
+      ims_vf0.dime.network.outgoing.bytes_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.outgoing.bytes_dime_admin_port_0
+      ims_vf0.dns.disk.device.read.requests_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.read.requests_dns_server_0
+      ims_vf0.ellis.disk.ephemeral.size_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.ephemeral.size_ellis_server_0
+      ims_vf0.sprout.network.incoming.bytes_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.incoming.bytes_sprout_admin_port_0
+      ims_vf0.ellis.disk.usage_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.usage_ellis_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.read.requests.rate_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.read.requests.rate_vVerifier
+      ims_vf0.abstract_robot.binding_robot:
+      - ims_vf0
+      - abstract_robot.binding_robot
+      ims_vf0.bono.disk.capacity_bono_server_0:
+      - ims_vf0
+      - bono.disk.capacity_bono_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.latency_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.latency_vVerifier
+      ims_vf0.abstract_robot.cpu_robot:
+      - ims_vf0
+      - abstract_robot.cpu_robot
+      ims_vf0.homer.scalable_homer_server_0:
+      - ims_vf0
+      - homer.scalable_homer_server_0
+      ims_vf0.sprout.endpoint_sprout_server_0:
+      - ims_vf0
+      - sprout.endpoint_sprout_server_0
+      ims_vf0.ellis.disk.read.bytes_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.read.bytes_ellis_server_0
+      ims_vf0.dns.feature_dns_admin_port_0:
+      - ims_vf0
+      - dns.feature_dns_admin_port_0
+      ims_vf0.sprout.disk.write.bytes_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.write.bytes_sprout_server_0
+      ims_vf0.dns.cpu_util_dns_server_0:
+      - ims_vf0
+      - dns.cpu_util_dns_server_0
+      ims_vf0.ellis.disk.device.write.requests.rate_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.write.requests.rate_ellis_server_0
+      ims_vf0.sprout.os_sprout_server_0:
+      - ims_vf0
+      - sprout.os_sprout_server_0
+      ims_vf0.dime.binding_dime_admin_port_0:
+      - ims_vf0
+      - dime.binding_dime_admin_port_0
+      ims_vf0.bono.disk.device.iops_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.iops_bono_server_0
+      ims_vf0.dime.memory.usage_dime_server_0:
+      - ims_vf0
+      - dime.memory.usage_dime_server_0
+      imsnum_vf0.abstract_ubuntu16.scalable_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.scalable_ubuntu16
+      ims_vf0.dime.disk.device.write.requests_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.write.requests_dime_server_0
+      ims_vf0.dime.network.incoming.bytes_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.incoming.bytes_dime_admin_port_0
+      vverifier_vf0.abstract_vverifier.disk.device.iops_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.iops_vVerifier
+      vverifier_vf0.abstract_vverifier.disk.usage_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.usage_vVerifier
+      ims_vf0.dime.forwarder_dime_admin_port_0:
+      - ims_vf0
+      - dime.forwarder_dime_admin_port_0
+      ims_vf0.abstract_robot.disk.capacity_robot:
+      - ims_vf0
+      - abstract_robot.disk.capacity_robot
+      ims_vf0.dns.disk.read.bytes.rate_dns_server_0:
+      - ims_vf0
+      - dns.disk.read.bytes.rate_dns_server_0
+      ims_vf0.ellis.attachment_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.attachment_ellis_admin_port_0
+      ims_vf0.ellis.network.outpoing.packets_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.outpoing.packets_ellis_admin_port_0
+      ims_vf0.bono.attachment_bono_admin_port_0:
+      - ims_vf0
+      - bono.attachment_bono_admin_port_0
+      ims_vf0.sprout.disk.device.write.requests.rate_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.write.requests.rate_sprout_server_0
+      ims_vf0.sprout.network.outgoing.bytes.rate_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.outgoing.bytes.rate_sprout_admin_port_0
+      ims_vf0.bono.binding_bono_server_0:
+      - ims_vf0
+      - bono.binding_bono_server_0
+      vverifier_vf0.abstract_vverifier.cpu_util_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.cpu_util_vVerifier
+      ims_vf0.dns.feature_dns_server_0:
+      - ims_vf0
+      - dns.feature_dns_server_0
+      ims_vf0.abstract_robot.feature_robot:
+      - ims_vf0
+      - abstract_robot.feature_robot
+      ims_vf0.abstract_robot.forwarder_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.forwarder_robot_robot_admin_plane_port
+      ims_vf0.dns.disk.read.bytes_dns_server_0:
+      - ims_vf0
+      - dns.disk.read.bytes_dns_server_0
+      ims_vf0.bono.feature_bono_Sec_Grp:
+      - ims_vf0
+      - bono.feature_bono_Sec_Grp
+      ims_vf0.ellis.disk.device.read.bytes_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.read.bytes_ellis_server_0
+      ims_vf0.dns.memory.usage_dns_server_0:
+      - ims_vf0
+      - dns.memory.usage_dns_server_0
+      ims_vf0.dime.instance_dime_server_0:
+      - ims_vf0
+      - dime.instance_dime_server_0
+      ims_vf0.dime.disk.device.read.requests.rate_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.read.requests.rate_dime_server_0
+      ims_vf0.sprout.disk.device.read.bytes.rate_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.read.bytes.rate_sprout_server_0
+      ims_vf0.dime.disk.write.requests.rate_dime_server_0:
+      - ims_vf0
+      - dime.disk.write.requests.rate_dime_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.usage_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.usage_vVerifier
+      ims_vf0.dns.cpu.delta_dns_server_0:
+      - ims_vf0
+      - dns.cpu.delta_dns_server_0
+      ims_vf0.ellis.feature_ellis_security_group:
+      - ims_vf0
+      - ellis.feature_ellis_security_group
+      imsnum_vf0.abstract_ubuntu16.disk.usage_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.usage_ubuntu16
+      ims_vf0.bono.disk.read.bytes_bono_server_0:
+      - ims_vf0
+      - bono.disk.read.bytes_bono_server_0
+      ims_vf0.dns.network.incoming.bytes.rate_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.incoming.bytes.rate_dns_admin_port_0
+      ims_vf0.homer.disk.device.read.bytes.rate_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.read.bytes.rate_homer_server_0
+      ims_vf0.sprout.network.outgoing.packets.rate_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.outgoing.packets.rate_sprout_admin_port_0
+      ims_vf0.sprout.cpu_util_sprout_server_0:
+      - ims_vf0
+      - sprout.cpu_util_sprout_server_0
+      ims_vf0.bono.disk.device.read.bytes.rate_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.read.bytes.rate_bono_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.device.write.bytes_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.write.bytes_ubuntu16
+      ims_vf0.vellum.disk.device.write.bytes_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.write.bytes_vellum_server_0
+      vverifier_vf0.abstract_vverifier.disk.ephemeral.size_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.ephemeral.size_vVerifier
+      ims_vf0.dime.scalable_dime_server_0:
+      - ims_vf0
+      - dime.scalable_dime_server_0
+      ims_vf0.abstract_robot.binding_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.binding_robot_robot_admin_plane_port
+      ims_vf0.homer.disk.iops_homer_server_0:
+      - ims_vf0
+      - homer.disk.iops_homer_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.write.bytes_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.write.bytes_vVerifier
+      ims_vf0.vellum.disk.device.allocation_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.allocation_vellum_server_0
+      ims_vf0.vellum.os_vellum_server_0:
+      - ims_vf0
+      - vellum.os_vellum_server_0
+      ims_vf0.dime.network.incoming.bytes.rate_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.incoming.bytes.rate_dime_admin_port_0
+      ims_vf0.vellum.network.incoming.bytes_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.incoming.bytes_vellum_admin_port_0
+      ims_vf0.bono.disk.device.capacity_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.capacity_bono_server_0
+      ims_vf0.dns.attachment_dns_admin_port_0:
+      - ims_vf0
+      - dns.attachment_dns_admin_port_0
+      ims_vf0.vellum.disk.device.usage_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.usage_vellum_server_0
+      ims_vf0.dime.feature_dime_server_0:
+      - ims_vf0
+      - dime.feature_dime_server_0
+      ims_vf0.bono.disk.read.bytes.rate_bono_server_0:
+      - ims_vf0
+      - bono.disk.read.bytes.rate_bono_server_0
+      ims_vf0.dime.disk.root.size_dime_server_0:
+      - ims_vf0
+      - dime.disk.root.size_dime_server_0
+      ims_vf0.bono.disk.device.write.bytes_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.write.bytes_bono_server_0
+      vverifier_vf0.abstract_vverifier.disk.write.bytes.rate_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.write.bytes.rate_vVerifier
+      ims_vf0.abstract_robot.disk.device.write.bytes_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.write.bytes_robot
+      ims_vf0.homer.vcpus_homer_server_0:
+      - ims_vf0
+      - homer.vcpus_homer_server_0
+      ims_vf0.dns.disk.latency_dns_server_0:
+      - ims_vf0
+      - dns.disk.latency_dns_server_0
+      ims_vf0.sprout.binding_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.binding_sprout_admin_port_0
+      ims_vf0.sprout.forwarder_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.forwarder_sprout_admin_port_0
+      ims_vf0.vellum.network.incoming.packets_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.incoming.packets_vellum_admin_port_0
+      ims_vf0.vellum.network.outgoing.packets.rate_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.outgoing.packets.rate_vellum_admin_port_0
+      ims_vf0.homer.disk.device.usage_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.usage_homer_server_0
+      ims_vf0.homer.disk.device.latency_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.latency_homer_server_0
+      ims_vf0.homer.network.outgoing.packets.rate_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.outgoing.packets.rate_homer_admin_port_0
+      ims_vf0.sprout.network.outgoing.bytes_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.outgoing.bytes_sprout_admin_port_0
+      ims_vf0.abstract_robot.disk.latency_robot:
+      - ims_vf0
+      - abstract_robot.disk.latency_robot
+      ims_vf0.sprout.disk.write.requests_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.write.requests_sprout_server_0
+      ims_vf0.abstract_robot.disk.device.usage_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.usage_robot
+      ims_vf0.dime.port_mirroring_dime_admin_port_0:
+      - ims_vf0
+      - dime.port_mirroring_dime_admin_port_0
+      ims_vf0.homer.attachment_homer_admin_port_0:
+      - ims_vf0
+      - homer.attachment_homer_admin_port_0
+      ims_vf0.abstract_robot.host_robot:
+      - ims_vf0
+      - abstract_robot.host_robot
+      ims_vf0.dns.disk.device.allocation_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.allocation_dns_server_0
+      ims_vf0.abstract_robot.network.outgoing.bytes_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.outgoing.bytes_robot_robot_admin_plane_port
+      ims_vf0.abstract_robot.network.incoming.bytes_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.incoming.bytes_robot_robot_admin_plane_port
+      imsnum_vf0.abstract_ubuntu16.disk.device.latency_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.latency_ubuntu16
+      ims_vf0.sprout.network.outpoing.packets_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.outpoing.packets_sprout_admin_port_0
+      ims_vf0.vellum.disk.device.write.bytes.rate_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.write.bytes.rate_vellum_server_0
+      ims_vf0.dime.network.incoming.packets_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.incoming.packets_dime_admin_port_0
+      ims_vf0.abstract_robot.disk.device.iops_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.iops_robot
+      imsnum_vf0.abstract_ubuntu16.disk.device.read.requests_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.read.requests_ubuntu16
+      ims_vf0.sprout.disk.allocation_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.allocation_sprout_server_0
+      ims_vf0.dime.feature_dime_admin_port_0:
+      - ims_vf0
+      - dime.feature_dime_admin_port_0
+      ims_vf0.dime.disk.device.usage_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.usage_dime_server_0
+      ims_vf0.homer.disk.device.read.bytes_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.read.bytes_homer_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.device.read.requests.rate_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.read.requests.rate_ubuntu16
+      ims_vf0.bono.forwarder_bono_admin_port_0:
+      - ims_vf0
+      - bono.forwarder_bono_admin_port_0
+      ims_vf0.sprout.cpu_sprout_server_0:
+      - ims_vf0
+      - sprout.cpu_sprout_server_0
+      ims_vf0.abstract_robot.cpu.delta_robot:
+      - ims_vf0
+      - abstract_robot.cpu.delta_robot
+      ims_vf0.vellum.disk.write.requests_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.write.requests_vellum_server_0
+      ims_vf0.dime.os_dime_server_0:
+      - ims_vf0
+      - dime.os_dime_server_0
+      vverifier_vf0.abstract_vverifier.feature_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.feature_vVerifier
+      ims_vf0.dime.vcpus_dime_server_0:
+      - ims_vf0
+      - dime.vcpus_dime_server_0
+      ims_vf0.ellis.disk.device.write.bytes.rate_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.write.bytes.rate_ellis_server_0
+      ims_vf0.bono.disk.usage_bono_server_0:
+      - ims_vf0
+      - bono.disk.usage_bono_server_0
+      ims_vf0.ellis.disk.write.requests_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.write.requests_ellis_server_0
+      ims_vf0.dns.network.incoming.packets.rate_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.incoming.packets.rate_dns_admin_port_0
+      ims_vf0.dns.disk.device.write.requests_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.write.requests_dns_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.write.requests.rate_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.write.requests.rate_vVerifier
+      ims_vf0.ellis.forwarder_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.forwarder_ellis_admin_port_0
+      ims_vf0.bono.cpu_bono_server_0:
+      - ims_vf0
+      - bono.cpu_bono_server_0
+      ims_vf0.abstract_robot.disk.device.write.requests.rate_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.write.requests.rate_robot
+      ims_vf0.ellis.disk.write.bytes.rate_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.write.bytes.rate_ellis_server_0
+      ims_vf0.vellum.disk.device.iops_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.iops_vellum_server_0
+      ims_vf0.vellum.disk.device.capacity_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.capacity_vellum_server_0
+      ims_vf0.homer.disk.read.bytes.rate_homer_server_0:
+      - ims_vf0
+      - homer.disk.read.bytes.rate_homer_server_0
+      ims_vf0.ellis.cpu_util_ellis_server_0:
+      - ims_vf0
+      - ellis.cpu_util_ellis_server_0
+      ims_vf0.ellis.disk.root.size_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.root.size_ellis_server_0
+      ims_vf0.abstract_robot.cpu_util_robot:
+      - ims_vf0
+      - abstract_robot.cpu_util_robot
+      vverifier_vf0.abstract_vverifier.disk.read.requests_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.read.requests_vVerifier
+      imsnum_vf0.abstract_ubuntu16.disk.latency_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.latency_ubuntu16
+      ims_vf0.dns.binding_dns_admin_port_0:
+      - ims_vf0
+      - dns.binding_dns_admin_port_0
+      ims_vf0.sprout.disk.device.capacity_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.capacity_sprout_server_0
+      ims_vf0.vellum.network.outgoing.bytes_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.outgoing.bytes_vellum_admin_port_0
+      ims_vf0.abstract_robot.disk.ephemeral.size_robot:
+      - ims_vf0
+      - abstract_robot.disk.ephemeral.size_robot
+      imsnum_vf0.abstract_ubuntu16.disk.device.allocation_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.allocation_ubuntu16
+      ims_vf0.bono.disk.device.read.requests_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.read.requests_bono_server_0
+      vverifier_vf0.abstract_vverifier.memory_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.memory_vVerifier
+      imsnum_vf0.abstract_ubuntu16.disk.write.requests.rate_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.write.requests.rate_ubuntu16
+      ims_vf0.dime.host_dime_server_0:
+      - ims_vf0
+      - dime.host_dime_server_0
+      imsnum_vf0.abstract_ubuntu16.binding_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.binding_ubuntu16
+      ims_vf0.bono.endpoint_bono_server_0:
+      - ims_vf0
+      - bono.endpoint_bono_server_0
+      ims_vf0.abstract_robot.disk.device.capacity_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.capacity_robot
+      ims_vf0.dns.network.outgoing.bytes.rate_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.outgoing.bytes.rate_dns_admin_port_0
+      ims_vf0.vellum.disk.write.bytes.rate_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.write.bytes.rate_vellum_server_0
+      ims_vf0.homer.disk.device.write.requests.rate_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.write.requests.rate_homer_server_0
+      ims_vf0.ellis.disk.write.bytes_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.write.bytes_ellis_server_0
+      ims_vf0.homer.memory.usage_homer_server_0:
+      - ims_vf0
+      - homer.memory.usage_homer_server_0
+      ims_vf0.dns.instance_dns_server_0:
+      - ims_vf0
+      - dns.instance_dns_server_0
+      ims_vf0.ellis.disk.capacity_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.capacity_ellis_server_0
+      ims_vf0.abstract_robot.disk.allocation_robot:
+      - ims_vf0
+      - abstract_robot.disk.allocation_robot
+      imsnum_vf0.abstract_ubuntu16.binding_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.binding_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.dime.disk.device.iops_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.iops_dime_server_0
+      ims_vf0.vellum.feature_vellum_security_group:
+      - ims_vf0
+      - vellum.feature_vellum_security_group
+      ims_vf0.sprout.network.incoming.bytes.rate_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.incoming.bytes.rate_sprout_admin_port_0
+      ims_vf0.sprout.disk.device.allocation_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.allocation_sprout_server_0
+      ims_vf0.dns.network.incoming.packets_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.incoming.packets_dns_admin_port_0
+      imsnum_vf0.abstract_ubuntu16.endpoint_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.endpoint_ubuntu16
+      imsnum_vf0.abstract_ubuntu16.disk.device.capacity_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.capacity_ubuntu16
+      ims_vf0.homer.feature_homer_security_group:
+      - ims_vf0
+      - homer.feature_homer_security_group
+      ims_vf0.ellis.port_mirroring_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.port_mirroring_ellis_admin_port_0
+      ims_vf0.abstract_robot.disk.root.size_robot:
+      - ims_vf0
+      - abstract_robot.disk.root.size_robot
+      ims_vf0.vellum.network.incoming.packets.rate_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.incoming.packets.rate_vellum_admin_port_0
+      ims_vf0.dime.disk.device.capacity_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.capacity_dime_server_0
+      ims_vf0.sprout.disk.ephemeral.size_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.ephemeral.size_sprout_server_0
+      vverifier_vf0.abstract_vverifier.vcpus_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.vcpus_vVerifier
+      ims_vf0.homer.instance_homer_server_0:
+      - ims_vf0
+      - homer.instance_homer_server_0
+      ims_vf0.ellis.network.incoming.bytes.rate_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.incoming.bytes.rate_ellis_admin_port_0
+      ims_vf0.ellis.disk.device.latency_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.latency_ellis_server_0
+      ims_vf0.dns.disk.write.bytes_dns_server_0:
+      - ims_vf0
+      - dns.disk.write.bytes_dns_server_0
+      ims_vf0.abstract_robot.disk.read.requests_robot:
+      - ims_vf0
+      - abstract_robot.disk.read.requests_robot
+      ims_vf0.bono.disk.root.size_bono_server_0:
+      - ims_vf0
+      - bono.disk.root.size_bono_server_0
+      imsnum_vf0.abstract_ubuntu16.network.incoming.bytes.rate_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.incoming.bytes.rate_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.ellis.disk.device.capacity_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.capacity_ellis_server_0
+      ims_vf0.dime.cpu_util_dime_server_0:
+      - ims_vf0
+      - dime.cpu_util_dime_server_0
+      ims_vf0.ellis.disk.write.requests.rate_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.write.requests.rate_ellis_server_0
+      ims_vf0.sprout.disk.device.read.bytes_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.read.bytes_sprout_server_0
+      ims_vf0.vellum.disk.ephemeral.size_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.ephemeral.size_vellum_server_0
+      ims_vf0.ellis.disk.allocation_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.allocation_ellis_server_0
+      ims_vf0.dns.disk.read.requests_dns_server_0:
+      - ims_vf0
+      - dns.disk.read.requests_dns_server_0
+      ims_vf0.bono.network.outgoing.packets.rate_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.outgoing.packets.rate_bono_admin_port_0
+      ims_vf0.bono.disk.device.read.bytes_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.read.bytes_bono_server_0
+      ims_vf0.sprout.port_mirroring_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.port_mirroring_sprout_admin_port_0
+      ims_vf0.homer.cpu_util_homer_server_0:
+      - ims_vf0
+      - homer.cpu_util_homer_server_0
+      ims_vf0.homer.endpoint_homer_server_0:
+      - ims_vf0
+      - homer.endpoint_homer_server_0
+      ims_vf0.homer.disk.latency_homer_server_0:
+      - ims_vf0
+      - homer.disk.latency_homer_server_0
+      ims_vf0.abstract_robot.disk.write.requests.rate_robot:
+      - ims_vf0
+      - abstract_robot.disk.write.requests.rate_robot
+      ims_vf0.bono.feature_bono_admin_port_0:
+      - ims_vf0
+      - bono.feature_bono_admin_port_0
+      ims_vf0.dime.disk.read.requests_dime_server_0:
+      - ims_vf0
+      - dime.disk.read.requests_dime_server_0
+      ims_vf0.homer.disk.device.write.bytes.rate_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.write.bytes.rate_homer_server_0
+      ims_vf0.dns.disk.write.requests_dns_server_0:
+      - ims_vf0
+      - dns.disk.write.requests_dns_server_0
+      ims_vf0.homer.disk.root.size_homer_server_0:
+      - ims_vf0
+      - homer.disk.root.size_homer_server_0
+      ims_vf0.vellum.disk.read.requests_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.read.requests_vellum_server_0
+      ims_vf0.dime.feature_dime_security_group:
+      - ims_vf0
+      - dime.feature_dime_security_group
+      ims_vf0.sprout.disk.device.write.requests_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.write.requests_sprout_server_0
+      ims_vf0.vellum.cpu_util_vellum_server_0:
+      - ims_vf0
+      - vellum.cpu_util_vellum_server_0
+      ims_vf0.vellum.memory.usage_vellum_server_0:
+      - ims_vf0
+      - vellum.memory.usage_vellum_server_0
+      ims_vf0.sprout.instance_sprout_server_0:
+      - ims_vf0
+      - sprout.instance_sprout_server_0
+      ims_vf0.dime.disk.device.read.bytes.rate_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.read.bytes.rate_dime_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.allocation_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.allocation_ubuntu16
+      ims_vf0.vellum.cpu_vellum_server_0:
+      - ims_vf0
+      - vellum.cpu_vellum_server_0
+      ims_vf0.homer.network.incoming.packets.rate_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.incoming.packets.rate_homer_admin_port_0
+      ims_vf0.homer.network.incoming.packets_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.incoming.packets_homer_admin_port_0
+      ims_vf0.dns.network.outgoing.bytes_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.outgoing.bytes_dns_admin_port_0
+      ims_vf0.dime.attachment_dime_admin_port_0:
+      - ims_vf0
+      - dime.attachment_dime_admin_port_0
+      ims_vf0.sprout.host_sprout_server_0:
+      - ims_vf0
+      - sprout.host_sprout_server_0
+      imsnum_vf0.abstract_ubuntu16.network.outgoing.packets.rate_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.outgoing.packets.rate_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.sprout.cpu.delta_sprout_server_0:
+      - ims_vf0
+      - sprout.cpu.delta_sprout_server_0
+      ims_vf0.bono.disk.write.bytes.rate_bono_server_0:
+      - ims_vf0
+      - bono.disk.write.bytes.rate_bono_server_0
+      ims_vf0.dime.disk.write.requests_dime_server_0:
+      - ims_vf0
+      - dime.disk.write.requests_dime_server_0
+      ims_vf0.vellum.network.incoming.bytes.rate_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.network.incoming.bytes.rate_vellum_admin_port_0
+      imsnum_vf0.abstract_ubuntu16.os_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.os_ubuntu16
+      ims_vf0.dns.feature_dns_security_group:
+      - ims_vf0
+      - dns.feature_dns_security_group
+      ims_vf0.dime.disk.device.write.bytes_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.write.bytes_dime_server_0
+      ims_vf0.vellum.binding_vellum_server_0:
+      - ims_vf0
+      - vellum.binding_vellum_server_0
+      ims_vf0.bono.port_mirroring_bono_admin_port_0:
+      - ims_vf0
+      - bono.port_mirroring_bono_admin_port_0
+      ims_vf0.sprout.vcpus_sprout_server_0:
+      - ims_vf0
+      - sprout.vcpus_sprout_server_0
+      ims_vf0.sprout.disk.read.bytes.rate_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.read.bytes.rate_sprout_server_0
+      ims_vf0.abstract_robot.network.outgoing.packets.rate_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.outgoing.packets.rate_robot_robot_admin_plane_port
+      ims_vf0.ellis.network.incoming.packets.rate_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.incoming.packets.rate_ellis_admin_port_0
+      ims_vf0.abstract_robot.disk.device.write.bytes.rate_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.write.bytes.rate_robot
+      ims_vf0.dns.vcpus_dns_server_0:
+      - ims_vf0
+      - dns.vcpus_dns_server_0
+      ims_vf0.abstract_robot.attachment_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.attachment_robot_robot_admin_plane_port
+      ims_vf0.dime.network.outpoing.packets_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.outpoing.packets_dime_admin_port_0
+      ims_vf0.homer.disk.write.bytes_homer_server_0:
+      - ims_vf0
+      - homer.disk.write.bytes_homer_server_0
+      ims_vf0.ellis.cpu.delta_ellis_server_0:
+      - ims_vf0
+      - ellis.cpu.delta_ellis_server_0
+      ims_vf0.sprout.scalable_sprout_server_0:
+      - ims_vf0
+      - sprout.scalable_sprout_server_0
+      ims_vf0.dns.disk.device.write.requests.rate_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.write.requests.rate_dns_server_0
+      ims_vf0.dime.cpu_dime_server_0:
+      - ims_vf0
+      - dime.cpu_dime_server_0
+      ims_vf0.abstract_robot.memory.usage_robot:
+      - ims_vf0
+      - abstract_robot.memory.usage_robot
+      ims_vf0.ellis.feature_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.feature_ellis_admin_port_0
+      ims_vf0.homer.disk.capacity_homer_server_0:
+      - ims_vf0
+      - homer.disk.capacity_homer_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.write.bytes.rate_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.write.bytes.rate_vVerifier
+      ims_vf0.sprout.memory.resident_sprout_server_0:
+      - ims_vf0
+      - sprout.memory.resident_sprout_server_0
+      ims_vf0.ellis.disk.read.requests_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.read.requests_ellis_server_0
+      imsnum_vf0.abstract_ubuntu16.attachment_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.attachment_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.vellum.disk.device.read.bytes_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.read.bytes_vellum_server_0
+      ims_vf0.ellis.disk.device.usage_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.usage_ellis_server_0
+      ims_vf0.abstract_robot.disk.device.latency_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.latency_robot
+      ims_vf0.abstract_robot.os_robot:
+      - ims_vf0
+      - abstract_robot.os_robot
+      ims_vf0.dime.network.outgoing.bytes.rate_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.outgoing.bytes.rate_dime_admin_port_0
+      ims_vf0.dns.disk.device.write.bytes_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.write.bytes_dns_server_0
+      imsnum_vf0.abstract_ubuntu16.cpu_util_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.cpu_util_ubuntu16
+      ims_vf0.dns.disk.device.capacity_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.capacity_dns_server_0
+      ims_vf0.vellum.instance_vellum_server_0:
+      - ims_vf0
+      - vellum.instance_vellum_server_0
+      ims_vf0.abstract_robot.disk.device.read.bytes.rate_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.read.bytes.rate_robot
+      ims_vf0.ellis.disk.device.allocation_ellis_server_0:
+      - ims_vf0
+      - ellis.disk.device.allocation_ellis_server_0
+      ims_vf0.dns.memory.resident_dns_server_0:
+      - ims_vf0
+      - dns.memory.resident_dns_server_0
+      ims_vf0.abstract_robot.disk.device.read.requests_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.read.requests_robot
+      ims_vf0.bono.disk.write.bytes_bono_server_0:
+      - ims_vf0
+      - bono.disk.write.bytes_bono_server_0
+      ims_vf0.ellis.memory.resident_ellis_server_0:
+      - ims_vf0
+      - ellis.memory.resident_ellis_server_0
+      imsnum_vf0.abstract_ubuntu16.memory.resident_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.memory.resident_ubuntu16
+      ims_vf0.ellis.os_ellis_server_0:
+      - ims_vf0
+      - ellis.os_ellis_server_0
+      ims_vf0.bono.host_bono_server_0:
+      - ims_vf0
+      - bono.host_bono_server_0
+      ims_vf0.dns.os_dns_server_0:
+      - ims_vf0
+      - dns.os_dns_server_0
+      ims_vf0.abstract_robot.endpoint_robot:
+      - ims_vf0
+      - abstract_robot.endpoint_robot
+      imsnum_vf0.abstract_ubuntu16.disk.device.write.bytes.rate_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.write.bytes.rate_ubuntu16
+      ims_vf0.ellis.endpoint_ellis_server_0:
+      - ims_vf0
+      - ellis.endpoint_ellis_server_0
+      ims_vf0.bono.disk.device.write.requests_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.write.requests_bono_server_0
+      imsnum_vf0.ubuntu16_admin_security_group.feature:
+      - imsnum_vf0
+      - ubuntu16_admin_security_group.feature
+      vverifier_vf0.abstract_vverifier.scalable_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.scalable_vVerifier
+      ims_vf0.vellum.disk.latency_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.latency_vellum_server_0
+      ims_vf0.vellum.disk.device.write.requests_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.write.requests_vellum_server_0
+      ims_vf0.sprout.disk.capacity_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.capacity_sprout_server_0
+      ims_vf0.homer.host_homer_server_0:
+      - ims_vf0
+      - homer.host_homer_server_0
+      ims_vf0.dime.memory.resident_dime_server_0:
+      - ims_vf0
+      - dime.memory.resident_dime_server_0
+      vverifier_vf0.abstract_vverifier.disk.root.size_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.root.size_vVerifier
+      ims_vf0.dns.disk.write.bytes.rate_dns_server_0:
+      - ims_vf0
+      - dns.disk.write.bytes.rate_dns_server_0
+      ims_vf0.dime.disk.iops_dime_server_0:
+      - ims_vf0
+      - dime.disk.iops_dime_server_0
+      vverifier_vf0.abstract_vverifier.disk.capacity_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.capacity_vVerifier
+      ims_vf0.ellis.network.incoming.packets_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.incoming.packets_ellis_admin_port_0
+      imsnum_vf0.abstract_ubuntu16.memory_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.memory_ubuntu16
+      vverifier_vf0.abstract_vverifier.disk.device.read.requests_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.read.requests_vVerifier
+      ims_vf0.homer.disk.read.requests_homer_server_0:
+      - ims_vf0
+      - homer.disk.read.requests_homer_server_0
+      imsnum_vf0.abstract_ubuntu16.network.outgoing.bytes.rate_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.outgoing.bytes.rate_ubuntu16_ubuntu16_admin_plane_port
+      imsnum_vf0.abstract_ubuntu16.network.incoming.packets.rate_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.network.incoming.packets.rate_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.ellis.network.incoming.bytes_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.incoming.bytes_ellis_admin_port_0
+      ims_vf0.dns.disk.device.iops_dns_server_0:
+      - ims_vf0
+      - dns.disk.device.iops_dns_server_0
+      imsnum_vf0.abstract_ubuntu16.instance_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.instance_ubuntu16
+      ims_vf0.dime.disk.read.bytes.rate_dime_server_0:
+      - ims_vf0
+      - dime.disk.read.bytes.rate_dime_server_0
+      imsnum_vf0.abstract_ubuntu16.disk.device.read.bytes_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.device.read.bytes_ubuntu16
+      ims_vf0.dns.network.incoming.bytes_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.incoming.bytes_dns_admin_port_0
+      ims_vf0.vellum.cpu.delta_vellum_server_0:
+      - ims_vf0
+      - vellum.cpu.delta_vellum_server_0
+      vverifier_vf0.abstract_vverifier.endpoint_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.endpoint_vVerifier
+      ims_vf0.vellum.feature_vellum_server_0:
+      - ims_vf0
+      - vellum.feature_vellum_server_0
+      ims_vf0.bono.disk.read.requests_bono_server_0:
+      - ims_vf0
+      - bono.disk.read.requests_bono_server_0
+      ims_vf0.homer.disk.device.capacity_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.capacity_homer_server_0
+      ims_vf0.bono.disk.device.write.bytes.rate_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.write.bytes.rate_bono_server_0
+      ims_vf0.dns.network.outpoing.packets_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.outpoing.packets_dns_admin_port_0
+      ims_vf0.sprout.attachment_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.attachment_sprout_admin_port_0
+      ims_vf0.sprout.disk.latency_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.latency_sprout_server_0
+      vverifier_vf0.abstract_vverifier.disk.iops_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.iops_vVerifier
+      ims_vf0.abstract_robot.network.outgoing.bytes.rate_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.outgoing.bytes.rate_robot_robot_admin_plane_port
+      vverifier_vf0.abstract_vverifier.disk.write.bytes_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.write.bytes_vVerifier
+      ims_vf0.abstract_robot.network.incoming.packets.rate_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.network.incoming.packets.rate_robot_robot_admin_plane_port
+      imsnum_vf0.abstract_ubuntu16.disk.ephemeral.size_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.ephemeral.size_ubuntu16
+      ims_vf0.homer.disk.device.allocation_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.allocation_homer_server_0
+      ims_vf0.homer.disk.device.read.requests.rate_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.read.requests.rate_homer_server_0
+      ims_vf0.vellum.attachment_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.attachment_vellum_admin_port_0
+      imsnum_vf0.abstract_ubuntu16.disk.read.bytes_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.read.bytes_ubuntu16
+      ims_vf0.sprout.network.incoming.packets_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.network.incoming.packets_sprout_admin_port_0
+      ims_vf0.dns.network.outgoing.packets.rate_dns_admin_port_0:
+      - ims_vf0
+      - dns.network.outgoing.packets.rate_dns_admin_port_0
+      imsnum_vf0.abstract_ubuntu16.disk.iops_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.iops_ubuntu16
+      ims_vf0.abstract_robot.disk.device.allocation_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.allocation_robot
+      ims_vf0.vellum.disk.write.requests.rate_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.write.requests.rate_vellum_server_0
+      ims_vf0.sprout.disk.write.bytes.rate_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.write.bytes.rate_sprout_server_0
+      ims_vf0.bono.network.outgoing.bytes_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.outgoing.bytes_bono_admin_port_0
+      ims_vf0.dns.forwarder_dns_admin_port_0:
+      - ims_vf0
+      - dns.forwarder_dns_admin_port_0
+      ims_vf0.homer.disk.write.requests_homer_server_0:
+      - ims_vf0
+      - homer.disk.write.requests_homer_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.read.bytes.rate_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.read.bytes.rate_vVerifier
+      ims_vf0.homer.feature_homer_admin_port_0:
+      - ims_vf0
+      - homer.feature_homer_admin_port_0
+      ims_vf0.dns.disk.usage_dns_server_0:
+      - ims_vf0
+      - dns.disk.usage_dns_server_0
+      ims_vf0.bono.network.outgoing.bytes.rate_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.outgoing.bytes.rate_bono_admin_port_0
+      ims_vf0.dime.network.outgoing.packets.rate_dime_admin_port_0:
+      - ims_vf0
+      - dime.network.outgoing.packets.rate_dime_admin_port_0
+      ims_vf0.bono.memory.usage_bono_server_0:
+      - ims_vf0
+      - bono.memory.usage_bono_server_0
+      ims_vf0.dns.scalable_dns_server_0:
+      - ims_vf0
+      - dns.scalable_dns_server_0
+      ims_vf0.sprout.binding_sprout_server_0:
+      - ims_vf0
+      - sprout.binding_sprout_server_0
+      vverifier_vf0.abstract_vverifier.disk.device.read.bytes_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.device.read.bytes_vVerifier
+      ims_vf0.vellum.disk.device.read.requests_vellum_server_0:
+      - ims_vf0
+      - vellum.disk.device.read.requests_vellum_server_0
+      imsnum_vf0.abstract_ubuntu16.forwarder_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.forwarder_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.bono.disk.device.latency_bono_server_0:
+      - ims_vf0
+      - bono.disk.device.latency_bono_server_0
+      ims_vf0.dime.disk.device.write.requests.rate_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.write.requests.rate_dime_server_0
+      ims_vf0.dime.disk.write.bytes.rate_dime_server_0:
+      - ims_vf0
+      - dime.disk.write.bytes.rate_dime_server_0
+      ims_vf0.dime.disk.device.latency_dime_server_0:
+      - ims_vf0
+      - dime.disk.device.latency_dime_server_0
+      ims_vf0.vellum.memory_vellum_server_0:
+      - ims_vf0
+      - vellum.memory_vellum_server_0
+      ims_vf0.dime.cpu.delta_dime_server_0:
+      - ims_vf0
+      - dime.cpu.delta_dime_server_0
+      vverifier_vf0.abstract_vverifier.cpu_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.cpu_vVerifier
+      ims_vf0.dns.endpoint_dns_server_0:
+      - ims_vf0
+      - dns.endpoint_dns_server_0
+      ims_vf0.dns.port_mirroring_dns_admin_port_0:
+      - ims_vf0
+      - dns.port_mirroring_dns_admin_port_0
+      ims_vf0.bono.scalable_bono_server_0:
+      - ims_vf0
+      - bono.scalable_bono_server_0
+      ims_vf0.dime.disk.allocation_dime_server_0:
+      - ims_vf0
+      - dime.disk.allocation_dime_server_0
+      ims_vf0.bono.vcpus_bono_server_0:
+      - ims_vf0
+      - bono.vcpus_bono_server_0
+      ims_vf0.homer.binding_homer_server_0:
+      - ims_vf0
+      - homer.binding_homer_server_0
+      ims_vf0.homer.disk.write.requests.rate_homer_server_0:
+      - ims_vf0
+      - homer.disk.write.requests.rate_homer_server_0
+      ims_vf0.bono.disk.ephemeral.size_bono_server_0:
+      - ims_vf0
+      - bono.disk.ephemeral.size_bono_server_0
+      ims_vf0.homer.network.outgoing.bytes_homer_admin_port_0:
+      - ims_vf0
+      - homer.network.outgoing.bytes_homer_admin_port_0
+      ims_vf0.homer.disk.device.iops_homer_server_0:
+      - ims_vf0
+      - homer.disk.device.iops_homer_server_0
+      ims_vf0.sprout.disk.device.write.bytes.rate_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.device.write.bytes.rate_sprout_server_0
+      ims_vf0.bono.os_bono_server_0:
+      - ims_vf0
+      - bono.os_bono_server_0
+      vverifier_vf0.abstract_vverifier.disk.read.bytes_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.disk.read.bytes_vVerifier
+      imsnum_vf0.abstract_ubuntu16.disk.read.bytes.rate_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.disk.read.bytes.rate_ubuntu16
+      ims_vf0.sprout.disk.read.bytes_sprout_server_0:
+      - ims_vf0
+      - sprout.disk.read.bytes_sprout_server_0
+      ims_vf0.dns.cpu_dns_server_0:
+      - ims_vf0
+      - dns.cpu_dns_server_0
+      ims_vf0.abstract_robot.disk.device.write.requests_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.write.requests_robot
+      ims_vf0.bono.binding_bono_admin_port_0:
+      - ims_vf0
+      - bono.binding_bono_admin_port_0
+      ims_vf0.dns.disk.write.requests.rate_dns_server_0:
+      - ims_vf0
+      - dns.disk.write.requests.rate_dns_server_0
+      ims_vf0.vellum.forwarder_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.forwarder_vellum_admin_port_0
+      ims_vf0.bono.instance_bono_server_0:
+      - ims_vf0
+      - bono.instance_bono_server_0
+      ims_vf0.ellis.network.outgoing.bytes_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.network.outgoing.bytes_ellis_admin_port_0
+      ims_vf0.bono.network.incoming.packets.rate_bono_admin_port_0:
+      - ims_vf0
+      - bono.network.incoming.packets.rate_bono_admin_port_0
+      ims_vf0.abstract_robot.disk.device.read.bytes_robot:
+      - ims_vf0
+      - abstract_robot.disk.device.read.bytes_robot
+    requirements:
+      ims_vf0.sprout.local_storage_sprout_server_0:
+      - ims_vf0
+      - sprout.local_storage_sprout_server_0
+      ims_vf0.abstract_robot.link_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.link_robot_robot_admin_plane_port
+      ims_vf0.bono.link_bono_admin_port_0:
+      - ims_vf0
+      - bono.link_bono_admin_port_0
+      ims_vf0.dime.local_storage_dime_server_0:
+      - ims_vf0
+      - dime.local_storage_dime_server_0
+      ims_vf0.bono.dependency_bono_Sec_Grp:
+      - ims_vf0
+      - bono.dependency_bono_Sec_Grp
+      ims_vf0.sprout.dependency_sprout_server_0:
+      - ims_vf0
+      - sprout.dependency_sprout_server_0
+      ims_vf0.abstract_robot.local_storage_robot:
+      - ims_vf0
+      - abstract_robot.local_storage_robot
+      imsnum_vf0.ubuntu16_admin_security_group.port:
+      - imsnum_vf0
+      - ubuntu16_admin_security_group.port
+      imsnum_vf0.abstract_ubuntu16.dependency_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.dependency_ubuntu16
+      ims_vf0.vellum.dependency_vellum_security_group:
+      - ims_vf0
+      - vellum.dependency_vellum_security_group
+      ims_vf0.dns.dependency_dns_server_0:
+      - ims_vf0
+      - dns.dependency_dns_server_0
+      vverifier_vf0.abstract_vverifier.local_storage_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.local_storage_vVerifier
+      ims_vf0.vellum.link_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.link_vellum_admin_port_0
+      ims_vf0.dime.port_dime_security_group:
+      - ims_vf0
+      - dime.port_dime_security_group
+      ims_vf0.robot_0_security_group.port:
+      - ims_vf0
+      - robot_0_security_group.port
+      ims_vf0.dns.port_dns_security_group:
+      - ims_vf0
+      - dns.port_dns_security_group
+      ims_vf0.bono.dependency_bono_admin_port_0:
+      - ims_vf0
+      - bono.dependency_bono_admin_port_0
+      ims_vf0.sprout.port_sprout_security_group:
+      - ims_vf0
+      - sprout.port_sprout_security_group
+      ims_vf0.robot_0_security_group.dependency:
+      - ims_vf0
+      - robot_0_security_group.dependency
+      imsnum_vf0.ubuntu16_admin_security_group.dependency:
+      - imsnum_vf0
+      - ubuntu16_admin_security_group.dependency
+      ims_vf0.abstract_robot.dependency_robot:
+      - ims_vf0
+      - abstract_robot.dependency_robot
+      ims_vf0.dime.dependency_dime_server_0:
+      - ims_vf0
+      - dime.dependency_dime_server_0
+      ims_vf0.homer.dependency_homer_server_0:
+      - ims_vf0
+      - homer.dependency_homer_server_0
+      ims_vf0.ellis.dependency_ellis_security_group:
+      - ims_vf0
+      - ellis.dependency_ellis_security_group
+      ims_vf0.sprout.link_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.link_sprout_admin_port_0
+      ims_vf0.sprout.dependency_sprout_admin_port_0:
+      - ims_vf0
+      - sprout.dependency_sprout_admin_port_0
+      ims_vf0.homer.port_homer_security_group:
+      - ims_vf0
+      - homer.port_homer_security_group
+      ims_vf0.bono.port_bono_Sec_Grp:
+      - ims_vf0
+      - bono.port_bono_Sec_Grp
+      ims_vf0.ellis.dependency_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.dependency_ellis_admin_port_0
+      ims_vf0.dns.dependency_dns_admin_port_0:
+      - ims_vf0
+      - dns.dependency_dns_admin_port_0
+      vverifier_vf0.abstract_vverifier.dependency_vVerifier:
+      - vverifier_vf0
+      - abstract_vverifier.dependency_vVerifier
+      ims_vf0.vellum.port_vellum_security_group:
+      - ims_vf0
+      - vellum.port_vellum_security_group
+      imsnum_vf0.abstract_ubuntu16.local_storage_ubuntu16:
+      - imsnum_vf0
+      - abstract_ubuntu16.local_storage_ubuntu16
+      ims_vf0.dime.dependency_dime_admin_port_0:
+      - ims_vf0
+      - dime.dependency_dime_admin_port_0
+      ims_vf0.dime.dependency_dime_security_group:
+      - ims_vf0
+      - dime.dependency_dime_security_group
+      ims_vf0.vellum.dependency_vellum_admin_port_0:
+      - ims_vf0
+      - vellum.dependency_vellum_admin_port_0
+      ims_vf0.homer.dependency_homer_admin_port_0:
+      - ims_vf0
+      - homer.dependency_homer_admin_port_0
+      ims_vf0.dns.link_dns_admin_port_0:
+      - ims_vf0
+      - dns.link_dns_admin_port_0
+      ims_vf0.bono.dependency_bono_server_0:
+      - ims_vf0
+      - bono.dependency_bono_server_0
+      ims_vf0.homer.link_homer_admin_port_0:
+      - ims_vf0
+      - homer.link_homer_admin_port_0
+      ims_vf0.dns.dependency_dns_security_group:
+      - ims_vf0
+      - dns.dependency_dns_security_group
+      ims_vf0.bono.local_storage_bono_server_0:
+      - ims_vf0
+      - bono.local_storage_bono_server_0
+      ims_vf0.abstract_robot.dependency_robot_robot_admin_plane_port:
+      - ims_vf0
+      - abstract_robot.dependency_robot_robot_admin_plane_port
+      ims_vf0.ellis.local_storage_ellis_server_0:
+      - ims_vf0
+      - ellis.local_storage_ellis_server_0
+      imsnum_vf0.abstract_ubuntu16.link_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.link_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.sprout.dependency_sprout_security_group:
+      - ims_vf0
+      - sprout.dependency_sprout_security_group
+      imsnum_vf0.abstract_ubuntu16.dependency_ubuntu16_ubuntu16_admin_plane_port:
+      - imsnum_vf0
+      - abstract_ubuntu16.dependency_ubuntu16_ubuntu16_admin_plane_port
+      ims_vf0.ellis.port_ellis_security_group:
+      - ims_vf0
+      - ellis.port_ellis_security_group
+      ims_vf0.vellum.local_storage_vellum_server_0:
+      - ims_vf0
+      - vellum.local_storage_vellum_server_0
+      ims_vf0.ellis.dependency_ellis_server_0:
+      - ims_vf0
+      - ellis.dependency_ellis_server_0
+      ims_vf0.vellum.dependency_vellum_server_0:
+      - ims_vf0
+      - vellum.dependency_vellum_server_0
+      ims_vf0.dns.local_storage_dns_server_0:
+      - ims_vf0
+      - dns.local_storage_dns_server_0
+      ims_vf0.dime.link_dime_admin_port_0:
+      - ims_vf0
+      - dime.link_dime_admin_port_0
+      ims_vf0.ellis.link_ellis_admin_port_0:
+      - ims_vf0
+      - ellis.link_ellis_admin_port_0
+      ims_vf0.homer.dependency_homer_security_group:
+      - ims_vf0
+      - homer.dependency_homer_security_group
+      ims_vf0.homer.local_storage_homer_server_0:
+      - ims_vf0
+      - homer.local_storage_homer_server_0
